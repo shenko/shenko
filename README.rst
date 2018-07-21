@@ -1,6 +1,20 @@
 ======
-shenko
+Shenko
 ======
+
+Installing Shenko
+=================
+
+Install the latest development build of Shenko using the following command:
+
+```bash
+pip install shenko
+```
+
+If this command fails, please make sure your version of pip is up-to-date.
+Come visit our website at
+
+https://www.shenko.org/
 
 
 .. image:: https://img.shields.io/pypi/v/shenko.svg

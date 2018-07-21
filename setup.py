@@ -24,6 +24,7 @@ setup_requirements = [
 test_requirements = [
     'pytest',
     # TODO: Put package test requirements here
+    # 		do we need to add 'unitest'???
 ]
 
 setup(

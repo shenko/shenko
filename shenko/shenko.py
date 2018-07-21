@@ -11,15 +11,15 @@ MAIN MENU that threads
     -main listens to 'core'
 """
 
-import 01_HOME
-import 02_FILESYSTEM
-import 03_TEMPORARY
-import 04_INPUTS
-import 05_CENTRAL
-import 06_OUTPUT
-import 07_ROBOT_HOME
-import 08_NETWORK
-import 09_EXTERNAL
+import S01_HOME
+import S02_FILESYSTEM
+import S03_TEMPORARY
+import S04_INPUTS
+import S05_CENTRAL
+import S06_OUTPUT
+import S07_ROBOT_HOME
+import S08_NETWORK
+import S09_EXTERNAL
 
 
 #-------------SYNOPSIS------------------/
@@ -35,16 +35,15 @@ import 09_EXTERNAL
 
 def main():
     print "main core is running"
-    S_00_ROBOT_HOME.ROBOT_HOME()
-    S_01_HOME.HOME()
-    S_02_FILESYSTEM.FILESYSTEM()
-    S_03_TEMPORARY.TEMPORARY()
-    S_04_INPUTS.INPUTS()
-    S_05_CENTRAL.CENTRAL()
-    S_06_OUTPUT.OUTPUT()
-    S_07_PSU.PSU()
-    S_08_NETWORK.NETWORK()
-    S_09_EXTERNAL.EXTERNAL()
+    S01_HOME.HOME()
+    S02_FILESYSTEM.FILESYSTEM()
+    S03_TEMPORARY.TEMPORARY()
+    S04_INPUTS.INPUTS()
+    S05_CENTRAL.CENTRAL()
+    S06_OUTPUT.OUTPUT()
+    S07_ROBOT_HOME.ROBOT_HOME()
+    S08_NETWORK.NETWORK()
+    S09_EXTERNAL.EXTERNAL()
 
 # For making modules"
 if __name__ == '__main__':
