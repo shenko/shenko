@@ -11,7 +11,7 @@ MAIN MENU that threads
 """
 
 def OUTPUT():
-    print "OUTPUT: OK"
+    print("OUTPUT: OK")
 
 
 # For making modules"

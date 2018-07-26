@@ -11,7 +11,7 @@ MAIN MENU that threads
 """
 
 def INPUTS():
-    print "INPUTS: OK"
+    print("INPUTS: OK")
 
 
 # For making modules"

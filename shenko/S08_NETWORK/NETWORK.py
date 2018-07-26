@@ -11,7 +11,7 @@ MAIN MENU that threads
 """
 
 def NETWORK():
-    print "NETWORK: OK"
+    print("NETWORK: OK")
 
 
 # For making modules"

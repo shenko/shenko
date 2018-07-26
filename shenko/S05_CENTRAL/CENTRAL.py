@@ -11,7 +11,7 @@ MAIN MENU that threads
 """
 
 def CENTRAL():
-    print "CENTRAL: OK"
+    print("CENTRAL: OK")
 
 
 # For making modules"

@@ -11,7 +11,7 @@ MAIN MENU that threads
 """
 
 def EXTERNAL():
-    print "EXTERNAL: OK"
+    print("EXTERNAL: OK")
 
 
 # For making modules"

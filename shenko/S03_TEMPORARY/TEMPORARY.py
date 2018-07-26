@@ -11,7 +11,7 @@ MAIN MENU that threads
 """
 
 def TEMPORARY():
-    print "TEMPORARY: OK"
+    print("TEMPORARY: OK")
 
 
 # For making modules"

@@ -10,6 +10,16 @@ MAIN MENU that threads
     -each 'core' element is a thread
     -main listens to 'core'
 """
+from S01_HOME.HOME import HOME
+
+
+"""
+import sys
+print(sys.path)
+
+import os
+sys.path.append('')
+import myfile
 
 import S01_HOME
 import S02_FILESYSTEM
@@ -20,7 +30,7 @@ import S06_OUTPUT
 import S07_ROBOT_HOME
 import S08_NETWORK
 import S09_EXTERNAL
-
+"""
 
 #-------------SYNOPSIS------------------/
 """
@@ -34,16 +44,16 @@ import S09_EXTERNAL
 #----------------MAIN------------------/
 
 def main():
-    print "main core is running"
-    S01_HOME.HOME()
-    S02_FILESYSTEM.FILESYSTEM()
-    S03_TEMPORARY.TEMPORARY()
-    S04_INPUTS.INPUTS()
-    S05_CENTRAL.CENTRAL()
-    S06_OUTPUT.OUTPUT()
-    S07_ROBOT_HOME.ROBOT_HOME()
-    S08_NETWORK.NETWORK()
-    S09_EXTERNAL.EXTERNAL()
+    print("main core is running")
+    HOME()
+    #S02_FILESYSTEM.FILESYSTEM()
+    #S03_TEMPORARY.TEMPORARY()
+    #S04_INPUTS.INPUTS()
+    #S05_CENTRAL.CENTRAL()
+    #S06_OUTPUT.OUTPUT()
+    #S07_ROBOT_HOME.ROBOT_HOME()
+    #S08_NETWORK.NETWORK()
+    #S09_EXTERNAL.EXTERNAL()
 
 # For making modules"
 if __name__ == '__main__':
@@ -51,5 +61,5 @@ if __name__ == '__main__':
     # print('main.py is being run directly')
 else:
     # print("main.py is being imported")
-    print " " 
+    print("importing main") 
 

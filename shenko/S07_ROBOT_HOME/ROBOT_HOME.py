@@ -11,7 +11,7 @@ MAIN MENU that threads
 """
 
 def ROBOT_HOME():
-    print "ROBOT_HOME: OK"
+    print("ROBOT_HOME: OK")
 
 
 # For making modules"
