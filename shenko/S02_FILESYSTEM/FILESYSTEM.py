@@ -10,13 +10,13 @@ MAIN MENU that threads
     -main listens to 'core'
 """
 
-def FILESYSTEM():
-    print("FILESYSTEM: OK")
+def filesystem():
+    print("filesystem: OK")
 
 
 # For making modules"
 if __name__ == '__main__':
-    FILESYSTEM()
+    filesystem()
     # print('main.py is being run directly')
 else:
     # print("main.py is being imported")

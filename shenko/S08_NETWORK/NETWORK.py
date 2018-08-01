@@ -10,13 +10,13 @@ MAIN MENU that threads
     -main listens to 'core'
 """
 
-def NETWORK():
-    print("NETWORK: OK")
+def network():
+    print("network: OK")
 
 
 # For making modules"
 if __name__ == '__main__':
-    NETWORK()
+    network()
     # print('main.py is being run directly')
 else:
     # print("main.py is being imported")

@@ -10,13 +10,13 @@ MAIN MENU that threads
     -main listens to 'core'
 """
 
-def OUTPUT():
-    print("OUTPUT: OK")
+def output():
+    print("output: OK")
 
 
 # For making modules"
 if __name__ == '__main__':
-    OUTPUT()
+    output()
     # print('main.py is being run directly')
 else:
     # print("main.py is being imported")
