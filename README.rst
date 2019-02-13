@@ -46,7 +46,7 @@ visit either the www.shenko.org/Documentation
 Features
 --------
 
-* TODO
+This project is written entirely in python
 
 Credits
 -------
