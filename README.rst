@@ -7,7 +7,7 @@ Installing Shenko
 
 Install the latest development build of Shenko using the following command:
 
-```bash
+```
 pip install shenko
 ```
 
@@ -34,8 +34,14 @@ visit us at www.shenko.org
 
 
 * Free software: GNU General Public License v3
-* Documentation: https://shenko.readthedocs.io.
+* Documentation: https://shenko.org/help
 
+Usage
+-----
+
+We are still in the early stages of development, 
+The best way to see our latest developments is to 
+visit either the www.shenko.org/Documentation
 
 Features
 --------
