@@ -42,10 +42,7 @@ setup(
         ],
     },
     include_package_data=True,
-    install_requires=[
-    'requirements',
-    'panda3d>=1.10.0',
-    ]
+    install_requires='requirements',
     license="GNU General Public License v3",
     zip_safe=False,
     keywords='shenko',
