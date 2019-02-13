@@ -41,12 +41,12 @@ Usage
 
 We are still in the early stages of development, 
 The best way to see our latest developments is to 
-visit either the www.shenko.org/Documentation
+visit www.shenko.org
 
 Features
 --------
 
-* TODO
+This project is written entirely in python
 
 Credits
 -------

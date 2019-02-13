@@ -29,7 +29,7 @@ test_requirements = [
 
 setup(
     name='shenko',
-    version='0.1.0',
+    version='0.1.1',
     description="visit us at www.shenko.org",
     long_description=readme + '\n\n' + history,
     author="Danny Dowshenko",
@@ -42,7 +42,7 @@ setup(
         ],
     },
     include_package_data=True,
-    install_requires='requirements',
+    install_requires=requirements,
     license="GNU General Public License v3",
     zip_safe=False,
     keywords='shenko',
