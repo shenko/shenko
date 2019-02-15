@@ -1,1 +1,1 @@
-# from EXTERNAL import EXTERNAL
+from EXTERNAL import external
