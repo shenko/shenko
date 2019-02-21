@@ -10,7 +10,7 @@ __copyright__   = "http://creativecommons.org/licenses/by/3.0/legalcode"
     -each 'core' element is a thread
     -main listens to 'core'
 """
-
+"""
 from S01_HOME.HOME import home
 from S02_FILESYSTEM.FILESYSTEM import filesystem
 from S03_TEMPORARY.TEMPORARY import temporary
@@ -20,6 +20,16 @@ from S06_OUTPUT.OUTPUT import output
 from S07_ROBOT_HOME.ROBOT_HOME import robotHome
 from S08_NETWORK.NETWORK import network
 from S09_EXTERNAL.EXTERNAL import external
+"""
+import S01_HOME
+import S02_FILESYSTEM
+import S03_TEMPORARY
+import S04_INPUTS
+import S05_CENTRAL
+import S06_OUTPUT
+import S07_ROBOT_HOME
+import S08_NETWORK
+import S09_EXTERNAL
 
 #-------------SYNOPSIS------------------/
 #--------------VARIABLES---------------/
@@ -28,15 +38,15 @@ from S09_EXTERNAL.EXTERNAL import external
 
 def main():
     print("main core is running")
-    home()
-    filesystem()
-    temporary()
-    inputs()
-    central()
-    output()
-    robotHome()
-    network()
-    external()
+    S01_HOME.home()
+    S02_FILESYSTEM.filesystem()
+    S03_TEMPORARY.temporary()
+    S04_INPUTS.inputs()
+    S05_CENTRAL.central()
+    S06_OUTPUT.output()
+    S07_ROBOT_HOME.robotHome()
+    S08_NETWORK.network()
+    S09_EXTERNAL.external()
 
 # For making modules"
 if __name__ == '__main__':
