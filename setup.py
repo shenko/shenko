@@ -36,7 +36,17 @@ setup(
     author="Danny Dowshenko",
     author_email='dowshenko225@gmail.com',
     url='https://github.com/shenko/shenko',
-    packages=find_packages(include=['shenko']),
+    packages=find_packages(include=['shenko',
+        'shenko.S01_HOME',
+        'shenko.S02_FILESYSTEM',
+        'shenko.S03_TEMPORARY',
+        'shenko.S04_INPUTS',
+        'shenko.S05_CENTRAL',
+        'shenko.S06_OUTPUT',
+        'shenko.S07_ROBOT_HOME',
+        'shenko.S08_NETWORK',
+        'shenko.S09_EXTERNAL',
+        ]),
     entry_points={
         'console_scripts': [
             'shenko=shenko.cli:main',
