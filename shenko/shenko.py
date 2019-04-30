@@ -37,7 +37,7 @@ import S09_EXTERNAL
 #----------------MAIN------------------/
 
 def main():
-    print("main core is running")
+    print("main core is running!!!")
     S01_HOME.home()
     S02_FILESYSTEM.filesystem()
     S03_TEMPORARY.temporary()
