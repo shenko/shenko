@@ -54,5 +54,6 @@ if __name__ == '__main__':
     # print('main.py is being run directly')
 else:
     # print("main.py is being imported")
-    print("importing main") 
+    print("shenko/shenko/shenko.py importing main")
+    main()
 
