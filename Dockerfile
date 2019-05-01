@@ -7,7 +7,7 @@ MAINTAINER  shenko.org <shenko.org@gmail.com>
 
 # https://Gitub.com/shenko/shenko Last build build
 # date: Feb 21, 2019
-# version: 0.1.7
+# version: version='0.1.8'
 # Git Hash:
 # 564819edbe6a696c6fbfc6fbaf264bfd4a7c71bb
 
@@ -26,6 +26,7 @@ RUN         apt-get update && \
 RUN         pip install service_identity pycrypto && \
 #            pip install twisted==14.0.0
             pip install shenko
-            
+
+#CMD ["bash"]            
 CMD ["shenko"]
 

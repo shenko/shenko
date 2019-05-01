@@ -30,7 +30,7 @@ test_requirements = [
 
 setup(
     name='shenko',
-    version='version='version='0.1.7''',
+    version='0.1.8',
     description="visit us at www.shenko.org",
     long_description=readme + '\n\n' + history,
     author="Danny Dowshenko",
