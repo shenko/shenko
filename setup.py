@@ -13,7 +13,7 @@ with open('HISTORY.rst') as history_file:
 
 requirements = [
     'Click>=6.0',
-    'panda3d==1.10.0',
+    'panda3d>=1.10.0',
     # TODO: Put package requirements here
 ]
 
