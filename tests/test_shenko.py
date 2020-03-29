@@ -7,6 +7,9 @@ import pytest
 
 from click.testing import CliRunner
 
+
+import sys
+sys.path.append('../shenko')
 from shenko import shenko
 from shenko import cli
 
