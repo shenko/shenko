@@ -6,7 +6,7 @@
     Welcome to shenko, our goal when creating this community is to write software and build hardware using open source tools. We wanted to write the entire project in python as this is a programming language best suited for learning. Blender is a 3d software that allows us to create game assets and upload to the shenko website to share or import into the Panda3d game environment (that also uses python) and build the most epic 3d community.
 
   grade: stable # must be 'stable' to release into candidate/stable channels
-  confinement: devmode # use 'strict' once you have the right plugs and slots
+  confinement: strict # use 'strict' once you have the right plugs and slots
 
   parts:
     my-part:
