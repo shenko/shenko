@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=shenko
+Comment=Open source community for python projects
+Exec=shenko
+Icon=${SNAP}/meta/gui/shenko.png
+Terminal=false
