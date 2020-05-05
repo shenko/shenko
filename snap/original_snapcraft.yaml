@@ -11,14 +11,3 @@
     my-part:
       # Welcome visit us at www.shenko.org if you need more help
       plugin: nil
-
-  apps:
-    shenko:
-      command: shenko
-      desktop: usr/share/applications/shenko.desktop
-      plugs:
-        - desktop
-        - desktop-legacy
-        - wayland
-        - unity7
-
