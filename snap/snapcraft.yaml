@@ -9,11 +9,12 @@
   parts:
    shenko:
      plugin: python
+     python-version: python2 
      source: ..
 
   apps:
     shenko:
-      command: shenko
+      command: bin/shenko
       desktop: usr/share/applications/shenko.desktop
       plugs:
         - desktop
