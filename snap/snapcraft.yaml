@@ -10,7 +10,7 @@
    shenko:
      plugin: python
      python-version: python2 
-     source: ..
+     source: .
 
   apps:
     shenko:
