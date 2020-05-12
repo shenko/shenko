@@ -9,7 +9,7 @@
   parts:
    shenko:
      plugin: python
-     source: .
+     source: ..
 
   apps:
     shenko:
