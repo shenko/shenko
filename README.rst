@@ -9,9 +9,9 @@ Install the latest development build of Shenko using the following command:
 
 ``pip install shenko``
 
-``snap install shenko``
+We are currently developing a snap package as well;
 
-We also have snap package available:
+``snap install shenko``
 
 If this command fails, please make sure your version of pip is up-to-date.
 Come visit our website at
