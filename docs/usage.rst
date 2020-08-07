@@ -8,4 +8,5 @@ To use shenko in a project::
 
 .. image:: ref/fig3.1.png
   :width: 600
+  :align: center
   :alt: Shenko-fig-3.1-missing
