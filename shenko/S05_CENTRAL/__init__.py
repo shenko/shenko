@@ -1,1 +1,1 @@
-from CENTRAL import central
+from CENTRAL import *

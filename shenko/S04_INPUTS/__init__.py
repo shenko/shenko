@@ -1,1 +1,1 @@
-from INPUTS import inputs
+from INPUTS import *
