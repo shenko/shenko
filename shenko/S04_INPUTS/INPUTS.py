@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #FILE:          main.py
-#SOURCE:        viper/system/core/
+#SOURCE:        https://github.com/shenko/shenko/blob/master/shenko/S04_INPUTS/INPUTS.py
 __author__      = "Danny Dowshenko"
 __copyright__   = "http://creativecommons.org/licenses/by/3.0/legalcode"
 #DESCRIPTION:
@@ -43,12 +43,37 @@ ALLKEYS = [
   '\x0c', '\x0b',
 ]
 """
+menuToggle = True
+
+def modeSet(modeStatus):
+    # Turns on/off wireframe mode
+    if modeStatus == 'scene.setRenderModeWireframe()':
+        modeStatus = 'scene.setRenderModeFilled()'
+        print(modeStatus)
+        return modeStatus
+    else:
+        modeStatus = 'scene.setRenderModeWireframe()'
+        print(modeStatus)
+        return modeStatus
+
 class Keyboard(DirectObject.DirectObject):
-    def __init__(self):
+    def __init__(self, shareme):
+        print('shareme is passed from App class to keyboard class: ', shareme)
         self.accept('escape', self.quit)
         self.accept('mouse1', self.printHello)
-        self.accept('arrow_down', self.moveCamDown)
+        self.accept('arrow_down', self.moveCamDown, [shareme])
         self.accept('arrow_up', self.up)
+        self.accept('m', self.menuSet)
+        #self.accept('w', self.modeSet)
+
+    def menuSet(self):
+        global menuToggle
+        if menuToggle == True:
+            menuToggle = False
+            print('menu: ', menuToggle)
+        else:
+            menuToggle = True
+            print('menu: ', menuToggle)
 
     def quit(self):
     	sys.exit()
@@ -59,8 +84,11 @@ class Keyboard(DirectObject.DirectObject):
     def up(self):
         print("UP Camera Function Not enabled")
 
-    def moveCamDown(self):
+    def moveCamDown(self, shareme):
         print("Camera Function Not enabled")
+        print("Shareme after = ", shareme)
+        shareme = False
+        return shareme
 
 # For making modules"
 if __name__ == '__main__':
