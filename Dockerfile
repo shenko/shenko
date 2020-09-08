@@ -7,7 +7,7 @@ MAINTAINER  shenko.org <shenko.org@gmail.com>
 
 # https://Gitub.com/shenko/shenko Last build build
 # date: Feb 21, 2019
-# version: version='0.1.24'
+# version: version='0.1.25'
 # Git Hash:
 # 564819edbe6a696c6fbfc6fbaf264bfd4a7c71bb
 
