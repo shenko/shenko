@@ -11,4 +11,4 @@ cryptography==2.3
 PyYAML==4.2b1
 pytest==4.6.9
 pytest-runner==2.11.1
-panda3D>=1.10.0
+panda3D>=1.10.5
