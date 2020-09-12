@@ -49,7 +49,7 @@ setup(
         ]),
     entry_points={
         'console_scripts': [
-            'my_project = my_project.__main__:main'
+            'shenko = shenko.__main__:main'
         ],
     # This was the old entry point to run shenko as command line
     #entry_points={
