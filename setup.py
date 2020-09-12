@@ -49,8 +49,13 @@ setup(
         ]),
     entry_points={
         'console_scripts': [
-            'shenko=shenko.cli:main',
+            'my_project = my_project.__main__:main'
         ],
+    # This was the old entry point to run shenko as command line
+    #entry_points={
+    #    'console_scripts': [
+    #        'shenko=shenko.cli:main',
+    #    ],
     },
     include_package_data=True,
     install_requires=requirements,
@@ -62,8 +67,8 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Natural Language :: English',
-        "Programming Language :: Python :: 2",
-        'Programming Language :: Python :: 2.7',
+        #"Programming Language :: Python :: 2",
+        #'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',

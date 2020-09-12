@@ -7,9 +7,9 @@ Installing Shenko
 
 Install the latest development build of Shenko using the following command:
 
-``pip install shenko``
+``pip3 install shenko``
 
-We are currently developing a snap package as well;
+We are currently developing a snap package as well, should have better support in ver 0.2;
 
 ``snap install shenko``
 
