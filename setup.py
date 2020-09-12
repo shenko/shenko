@@ -49,14 +49,15 @@ setup(
         ]),
     entry_points={
         'console_scripts': [
-            'shenko = shenko.__main__:main'
+            'shenko = shenko:main',
         ],
+    }
     # This was the old entry point to run shenko as command line
     #entry_points={
     #    'console_scripts': [
     #        'shenko=shenko.cli:main',
     #    ],
-    },
+    #},
     include_package_data=True,
     install_requires=requirements,
     license="GNU General Public License v3",
