@@ -30,7 +30,7 @@ test_requirements = [
 
 setup(
     name='shenko',
-    version='0.1.28',
+    version='0.1.29',
     description="visit us at www.shenko.org",
     long_description=readme + '\n\n' + history,
     author="Danny Dowshenko",
@@ -49,9 +49,9 @@ setup(
         ]),
     entry_points={
         'console_scripts': [
-            'shenko = shenko:main',
+            'shenko = shenko.__main__:main',
         ],
-    }
+    },
     # This was the old entry point to run shenko as command line
     #entry_points={
     #    'console_scripts': [
