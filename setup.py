@@ -49,7 +49,7 @@ setup(
         ]),
     entry_points={
         'console_scripts': [
-            'shenko = shenko.main:main',
+            'shenko = shenko.shenko:main',
         ],
     },
     # This was the old entry point to run shenko as command line
