@@ -6,3 +6,4 @@ __author__ = """Danny Dowshenko"""
 __email__ = 'dowshenko225@gmail.com'
 __version__ = '0.1.31'
 import shenko
+from shenko import main
