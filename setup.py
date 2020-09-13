@@ -30,13 +30,14 @@ test_requirements = [
 
 setup(
     name='shenko',
-    version='0.1.35',
+    version='0.1.33',
     description="visit us at www.shenko.org",
     long_description=readme + '\n\n' + history,
     author="Danny Dowshenko",
     author_email='dowshenko225@gmail.com',
     url='https://github.com/shenko/shenko',
-    packages=find_packages(include=['shenko.S01_HOME',
+    packages=find_packages(include=['shenko',
+        'shenko.S01_HOME',
         'shenko.S02_FILESYSTEM',
         'shenko.S03_TEMPORARY',
         'shenko.S04_INPUTS',
