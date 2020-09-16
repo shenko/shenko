@@ -9,6 +9,7 @@ MAIN MENU that threads
     -each 'core' element is a thread
     -main listens to 'core'
 """
+import os
 from direct.showbase.ShowBase import ShowBase
 
 class MyApp(ShowBase):
@@ -17,6 +18,13 @@ class MyApp(ShowBase):
         self.setBackgroundColor(0,0,0)
 
         # Load the environment model.
+        print("\n#------------Current Working Directory-----------/\n")
+        pwd = os.getcwd()
+        print(pwd)
+        print("\n#------------Contents of Current Directory--------/\n")
+        ls = os.listdir(".")
+        print(ls)
+        print("\n#-------------------------------------------------/\n")
         self.scene = self.loader.loadModel("models/environment")
         #self.scene = self.loader.loadModel("/media/shenko/shenko_HQ/0-TOC/shenko_website/website/public_html/public/library/civil/derp.gltf")
         # Reparent the model to render.
