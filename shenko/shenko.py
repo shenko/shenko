@@ -37,7 +37,8 @@ https://docs.panda3d.org/1.10/python/programming/tasks-and-events/tasks
 shareme = True
 #--------------INIT FUNCTIONS---------------/
 def setupSequence():
-    print(os.listdir())
+    print(os.listdir("."))
+    print(os.getcwd())
     # I want to know where to download Shenko Models/Assets
     # It may be different on certain platforms
     plt = platform.system()

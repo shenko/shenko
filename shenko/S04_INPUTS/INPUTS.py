@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #FILE:          main.py
-#SOURCE:        https://github.com/shenko/shenko/blob/master/shenko/S04_INPUTS/INPUTS.py
+#SOURCE:        https://github.com/shenko/shenko/
+#               blob/master/shenko/S04_INPUTS/INPUTS.py
 __author__      = "Danny Dowshenko"
 __copyright__   = "http://creativecommons.org/licenses/by/3.0/legalcode"
 #DESCRIPTION:
@@ -68,7 +69,7 @@ class Keyboard(DirectObject.DirectObject):
 
     def menuSet(self):
         global menuToggle
-        if menuToggle == True:
+        if menuToggle is True:
             menuToggle = False
             print('menu: ', menuToggle)
         else:
@@ -76,7 +77,7 @@ class Keyboard(DirectObject.DirectObject):
             print('menu: ', menuToggle)
 
     def quit(self):
-    	sys.exit()
+        sys.exit()
 
     def printHello(self):
         print('Hello!')

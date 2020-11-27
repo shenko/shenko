@@ -1,1 +1,1 @@
-from CENTRAL import *
+from CENTRAL import MyApp

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #FILE:          main.py
-#SOURCE:        https://github.com/shenko/shenko/blob/master/shenko/S05_CENTRAL/CENTRAL.py
+#SOURCE:        https://github.com/shenko/shenko/
+#                blob/master/shenko/S05_CENTRAL/CENTRAL.py
 __author__      = "Danny Dowshenko"
 __copyright__   = "http://creativecommons.org/licenses/by/3.0/legalcode"
 #DESCRIPTION:
@@ -15,7 +16,7 @@ from direct.showbase.ShowBase import ShowBase
 class MyApp(ShowBase):
     def __init__(self):
         ShowBase.__init__(self)
-        self.setBackgroundColor(0,0,0)
+        self.setBackgroundColor(0, 0, 0)
 
         # Load the environment model.
         print("\n#------------Current Working Directory-----------/\n")
@@ -26,7 +27,8 @@ class MyApp(ShowBase):
         print(ls)
         print("\n#-------------------------------------------------/\n")
         self.scene = self.loader.loadModel("models/environment")
-        #self.scene = self.loader.loadModel("/media/shenko/shenko_HQ/0-TOC/shenko_website/website/public_html/public/library/civil/derp.gltf")
+        #self.scene = self.loader.loadModel("/media/shenko/shenko_HQ/0-TOC/
+        #...shenko_website/website/public_html/public/library/civil/derp.gltf")
         # Reparent the model to render.
         self.scene.reparentTo(self.render)
         # Apply scale and position transforms on the model.
