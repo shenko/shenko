@@ -13,6 +13,7 @@ __copyright__   = "http://creativecommons.org/licenses/by/3.0/legalcode"
 import sys
 import os
 import time
+import platform
 
 import S01_HOME
 import S02_FILESYSTEM
@@ -35,7 +36,23 @@ https://docs.panda3d.org/1.10/python/programming/tasks-and-events/tasks
 #--------------VARIABLES---------------/
 shareme = True
 #--------------INIT FUNCTIONS---------------/
+def setupSequence():
+    print(os.listdir())
+    # I want to know where to download Shenko Models/Assets
+    # It may be different on certain platforms
+    plt = platform.system()
 
+    if plt == "Windows":
+        print("Your system is Windows")
+        # create a users 'workspace' in C:\
+    elif plt == "Linux":
+        print("Your system is Linux")
+        # create a user 'workspace' in /home/$USER/$workspace
+    elif plt == "Darwin":
+        print("Your system is MacOS")
+        # I beleivce it is same structure as Linux
+    else:
+        print("Unidentified system")
 
 #----------------MAIN------------------/
 def main():
@@ -57,6 +74,7 @@ def main():
 # For making modules"
 if __name__ == '__main__':
     print('main.py is being run directly')
+    setupSequence()
     main()
 else:
     print("main.py is being imported")

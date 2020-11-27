@@ -12,6 +12,7 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
+    'platform>=3.9.1'
     'Click>=6.0',
     'panda3d>=1.10.5',
     # TODO: Put package requirements here
