@@ -28,8 +28,6 @@ https://www.shenko.org/
         :target: https://shenko.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-visit us at www.shenko.org
-
 * Free software: GNU General Public License v3
 * Documentation: https://shenko.org/help
 
@@ -43,7 +41,8 @@ visit www.shenko.org
 Features
 --------
 
-This project is written entirely in python
+This project is written entirely in python, and
+uses the panda3d game engine.
 
 Credits
 -------
