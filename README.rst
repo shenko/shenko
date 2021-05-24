@@ -4,6 +4,7 @@ Shenko
 
 Installing Shenko
 =================
+Windows user may need to install 'pip3' packagage manager.
 
 Install the latest development build of Shenko using the following command:
 
