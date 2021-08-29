@@ -15,15 +15,20 @@ import os
 import time
 import platform
 
-import S01_HOME
-import S02_FILESYSTEM
-import S03_TEMPORARY
-import S04_INPUTS
-import S05_CENTRAL
-import S06_OUTPUT
-import S07_ROBOT_HOME
-import S08_NETWORK
-import S09_EXTERNAL
+#import S01_HOME
+#import S02_FILESYSTEM
+#import S03_TEMPORARY
+#import S04_INPUTS
+#import S05_CENTRAL
+#import S06_OUTPUT
+#import S07_ROBOT_HOME
+#import S08_NETWORK
+#import S09_EXTERNAL
+
+import S01_HOME.HOME
+
+from direct.showbase.ShowBase import ShowBase
+from direct.gui.OnscreenText import OnscreenText
 
 #-------------SYNOPSIS------------------/
 """
@@ -56,28 +61,36 @@ def setupSequence():
         print("Unidentified system")
 
 #----------------MAIN------------------/
-def main():
-    print("main core is running!!!")
-    S01_HOME.home()
-    S02_FILESYSTEM.filesystem()
-    S03_TEMPORARY.temporary()
-    S04_INPUTS.Keyboard(shareme)
-    app = S05_CENTRAL.MyApp()
-    S06_OUTPUT.output()
-    S07_ROBOT_HOME.robotHome()
-    S08_NETWORK.network()
-    S09_EXTERNAL.external()
+class MyApp(ShowBase):
 
-    # Run is just Task.step() looped
-    #app = MyApp()
-    app.run()
+    def __init__(self):
+        ShowBase.__init__(self)
+
+        # The background colorw
+        base.setBackgroundColor(0,0,0)
+
+        # My first key binding
+        self.accept('escape', self.quit)
+        #self.accept('arrow_down-repeat', self.moveCam)
+
+        textObject = OnscreenText(text = 'main class working',
+                                pos = (-0.5, 0.02),
+                                scale = 0.07,
+                                fg = (0, 255, 255, 1))
+
+        S01_HOME.HOME.home(self)
+
+    def quit(self):
+    	print("quitting shenko")
+    	sys.exit()
 
 # For making modules"
 if __name__ == '__main__':
     print('main.py is being run directly')
     setupSequence()
-    main()
+    app = MyApp()
+    app.run()
 else:
-    print("main.py is being imported")
-    print("shenko/shenko/shenko.py importing main")
-    main()
+    print("Shenko main is being imported, with no setup")
+    app = MyApp()
+    app.run()
