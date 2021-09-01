@@ -12,4 +12,4 @@ twine==1.9.1
 PyYAML==3.11
 pytest==4.6.9
 pytest-runner==2.11.1
-panda3D>=1.10.5
+panda3D>=1.10.10

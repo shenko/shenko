@@ -32,7 +32,7 @@ def home(self):
     textObject = OnscreenText(text = bk_text, pos = (0.95,-0.95),
     scale = 0.05,fg=(0,1,1,1),bg=(0,0,0,.5),align=TextNode.ACenter,mayChange=1)
 
-    rollSound = base.loader.loadSfx("click.ogg")
+    #rollSound = base.loader.loadSfx("click.ogg")
 
     # Callback function to set  text
     def startMN(self):
@@ -64,8 +64,8 @@ def home(self):
     print os.getcwd()
 
     # Add button template
-    imageObject = OnscreenImage(image ='logo.png', pos=(0, 0, .6), scale=0.5)
-    imageObject.setImage('logo.png')
+    #imageObject = OnscreenImage(image ='logo.png', pos=(0, 0, .6), scale=0.5)
+    #imageObject.setImage('logo.png')
     #b = DirectButton(geom=loadImageAsPlane("logo.png"))
     #b = DirectButton(text = ("OK", "click!", "rolling over", "disabled"), scale=.05, command=setText)
     b = DirectButton(text = ("start", "---> start <---", "--> start <--", "disabled"), pos=(0,0,.2), scale=.07, rolloverSound=rollSound, command=startMN)

@@ -14,7 +14,7 @@ with open('HISTORY.rst') as history_file:
 requirements = [
     #'platform>=3.9.1'
     'Click>=6.0',
-    'panda3d>=1.10.5',
+    'panda3d>=1.10.10',
     # TODO: Put package requirements here
 ]
 
@@ -31,7 +31,7 @@ test_requirements = [
 
 setup(
     name='shenko',
-    version='0.1.44',
+    version='0.1.45',
     description="visit us at www.shenko.org",
     long_description=readme + '\n\n' + history,
     author="Danny Dowshenko",
