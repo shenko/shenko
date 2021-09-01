@@ -73,11 +73,14 @@ class MyApp(ShowBase):
         self.accept('escape', self.quit)
         #self.accept('arrow_down-repeat', self.moveCam)
 
+        """
+        # Just some example text on screen
         textObject = OnscreenText(text = 'main class working',
                                 pos = (-0.5, 0.02),
                                 scale = 0.07,
                                 fg = (0, 255, 255, 1))
-
+        """
+        
         S01_HOME.HOME.home(self)
 
     def quit(self):
