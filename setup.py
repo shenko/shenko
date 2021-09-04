@@ -60,7 +60,7 @@ setup(
     #    ],
     #},
     include_package_data=True,
-    package_data={'shenko': ['*.ogg', 'logo.png']}
+    package_data={'shenko': ['*.ogg', 'logo.png']},
     install_requires=requirements,
     license="GNU General Public License v3",
     zip_safe=False,
