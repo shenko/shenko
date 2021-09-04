@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+##!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #FILE:          main.py
 #SOURCE:        https://github.com/shenko/shenko/blob/master/shenko/shenko.py
@@ -80,7 +80,7 @@ class MyApp(ShowBase):
                                 scale = 0.07,
                                 fg = (0, 255, 255, 1))
         """
-        
+
         S01_HOME.HOME.home(self)
 
     def quit(self):

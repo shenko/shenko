@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 #FILE:          main.py
 #SOURCE:        viper/system/core/
 __author__      = "Danny Dowshenko"
