@@ -35,33 +35,33 @@ def home(self):
     rollSound = base.loader.loadSfx("click.ogg")
 
     # Callback function to set  text
-    def startMN(self):
+    def startMN():
         bk_text = "LOADING..."
         textObject.setText(bk_text)
 
     # Callback function to set  text
-    def mapMN(self):
+    def mapMN():
         bk_text = "MAP MENU"
         textObject.setText(bk_text)
 
     # Callback function to set  text
-    def optionsMN(self):
+    def optionsMN():
         bk_text = "OPTIONS MENU"
         textObject.setText(bk_text)
 
     # Callback function to set  text
-    def helpMN(self):
+    def helpMN():
         bk_text = "HELP MENU"
         textObject.setText(bk_text)
 
     # Callback function to set  text
-    def exitMN(self):
+    def exitMN():
         sys.exit()
 
     # Exit via button press in game or escape press by user
     #base.accept('escape', sys.exit)
 
-    print os.getcwd()
+    print(os.getcwd())
 
     # Add button template
     imageObject = OnscreenImage(image ='logo.png', pos=(0, 0, .6), scale=0.5)
