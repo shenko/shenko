@@ -38,8 +38,8 @@ setup(
     url='https://github.com/shenko/shenko',
     packages=find_packages(include=(
         where='shenko',
-        include=['S01_HOME']
-        ),
+        include=['S01_HOME'],
+    ),
     entry_points={
         'console_scripts': [
             'shenko = shenko.shenko:main',
