@@ -36,10 +36,8 @@ setup(
     author="Danny Dowshenko",
     author_email='dowshenko225@gmail.com',
     url='https://github.com/shenko/shenko',
-    packages=find_packages(where='shenko',
-        include=['shenko.S01_HOME'],
-    ),
-    package_dir={"": "shenko"},
+    packages=find_packages(include=['shenko']),
+    #package_dir={"": "shenko"},
     # entry_point runs a script, let's try and skip this
     entry_points={
         'console_scripts': [
