@@ -46,6 +46,7 @@ setup(
         'shenko.S07_ROBOT_HOME',
         'shenko.S08_NETWORK',
         'shenko.S09_EXTERNAL',
+        'S01_HOME'
         ]),
     entry_points={
         'console_scripts': [
