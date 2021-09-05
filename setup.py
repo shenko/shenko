@@ -37,7 +37,7 @@ setup(
     author_email='dowshenko225@gmail.com',
     url='https://github.com/shenko/shenko',
     packages=find_packages(where='shenko',
-        include=['S01_HOME'],
+        include=['shenko.S01_HOME'],
     ),
     # entry_point runs a script, let's try and skip this
     #entry_points={
