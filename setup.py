@@ -40,11 +40,11 @@ setup(
         include=['shenko.S01_HOME'],
     ),
     # entry_point runs a script, let's try and skip this
-    #entry_points={
-    #    'console_scripts': [
-    #        'shenko = shenko.shenko:main',
-    #    ],
-    #},
+    entry_points={
+        'console_scripts': [
+            'shenko = shenko.shenko:main',
+        ],
+    },
     #
     # This was the old entry point to run shenko as command line
     #entry_points={
