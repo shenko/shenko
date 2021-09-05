@@ -39,13 +39,13 @@ setup(
     packages=find_packages(where='shenko',
         include=['shenko.S01_HOME'],
     ),
+    package_dir={"": "shenko"},
     # entry_point runs a script, let's try and skip this
     entry_points={
         'console_scripts': [
             'shenko = shenko.shenko:main',
         ],
     },
-    #
     # This was the old entry point to run shenko as command line
     #entry_points={
     #    'console_scripts': [
