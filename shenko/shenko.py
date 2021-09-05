@@ -1,4 +1,4 @@
-##!/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #FILE:          main.py
 #SOURCE:        https://github.com/shenko/shenko/blob/master/shenko/shenko.py
@@ -25,8 +25,7 @@ import platform
 #import S08_NETWORK
 #import S09_EXTERNAL
 
-#import S01_HOME.HOME
-import S01_HOME
+import S01_HOME.HOME
 
 from direct.showbase.ShowBase import ShowBase
 from direct.gui.OnscreenText import OnscreenText
@@ -83,6 +82,7 @@ class MyApp(ShowBase):
         """
 
         S01_HOME.HOME.home(self)
+
 
     def quit(self):
     	print("quitting shenko")
