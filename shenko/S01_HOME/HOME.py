@@ -10,72 +10,59 @@ MAIN MENU that threads
 """
 #import direct.directbase.DirectStart
 from direct.gui.OnscreenText import OnscreenText
-
-from direct.gui.OnscreenText import OnscreenText
-from direct.gui.DirectGui import *
-
 # To draw the logo
 from direct.gui.OnscreenImage import OnscreenImage
-
+from direct.gui.DirectGui import *
 # For rolling over button sounds
 from panda3d.core import AudioSound
-
 from panda3d.core import TextNode
+from panda3d.core import NodePath
 
 import sys
 import os
 
-def home(self):
-    # Draws some text on the screen
-    bk_text = "SHENKO"
-    textObject = OnscreenText(text = bk_text, pos = (0.95,-0.95),
-    scale = 0.05,fg=(0,1,1,1),bg=(0,0,0,.5),align=TextNode.ACenter,mayChange=1)
+class mainMenu:
+    def __init__(self, mainMenuState, cameraActive):
+        # Just try and destroy a menu if it already exists
+        try:
+            self.hideMainMenu()
+        except:
+            # If nothing exists we create the main menu
+            self.bk_text = "Welcome to SHENKO"
+            self.textObject = OnscreenText(text = self.bk_text,
+                                            pos = (0.95,-0.95),
+                                            scale = 0.05,
+                                            fg=(0,1,1,1),
+                                            bg=(0,0,0,.5),
+                                            align=TextNode.ACenter,
+                                            mayChange=1)
+            #  Draw the Shenko LOGO
+            self.imageObject = OnscreenImage(image ='logo.png', pos=(0, 0, .6), scale=0.5)
+            self.imageObject.setImage('logo.png')
+        
+            # Menu buttons
+            rollSound = base.loader.loadSfx("click.ogg")
+            self.startbttn = DirectButton(text = ("start", "---> start <---", "--> start <--", "disabled"), 
+                                            pos=(0,0,.2), 
+                                            scale=.07, 
+                                            rolloverSound=rollSound, 
+                                            command=self.start)
+        
+    def hideMainMenu(self):
+        print("#---#### ####---#")
+        #DirectButton.destroy()
+        self.textObject.destroy()    # This is the text lower right of screen
+        self.imageObject.destroy()   # This is the Logo
+        self.startbttn['state'] = DGG.DISABLED
+        self.startbttn.destroy()
 
-    rollSound = base.loader.loadSfx("click.ogg")
-
-    # Callback function to set  text
-    def startMN():
-        bk_text = "LOADING..."
-        textObject.setText(bk_text)
-
-    # Callback function to set  text
-    def mapMN():
-        bk_text = "MAP MENU"
-        textObject.setText(bk_text)
-
-    # Callback function to set  text
-    def optionsMN():
-        bk_text = "OPTIONS MENU"
-        textObject.setText(bk_text)
-
-    # Callback function to set  text
-    def helpMN():
-        bk_text = "HELP MENU"
-        textObject.setText(bk_text)
-
-    # Callback function to set  text
-    def exitMN():
-        sys.exit()
-
-    # Exit via button press in game or escape press by user
-    #base.accept('escape', sys.exit)
-
-    print(os.getcwd())
-
-    # Add button template
-    imageObject = OnscreenImage(image ='logo.png', pos=(0, 0, .6), scale=0.5)
-    imageObject.setImage('logo.png')
-    #b = DirectButton(geom=loadImageAsPlane("logo.png"))
-    #b = DirectButton(text = ("OK", "click!", "rolling over", "disabled"), scale=.05, command=setText)
-    b = DirectButton(text = ("start", "---> start <---", "--> start <--", "disabled"), pos=(0,0,.2), scale=.07, rolloverSound=rollSound, command=startMN)
-    b = DirectButton(text = ("map", "---> map <---", "--> map <--", "disabled"), pos=(0,0,.1), scale=.07, rolloverSound=rollSound, command=mapMN)
-    b = DirectButton(text = ("options", "---> options <---", "--> options <--", "disabled"), pos=(0,0,0), rolloverSound=rollSound, scale=.07, command=optionsMN)
-    b = DirectButton(text = ("help", "---> help <---", "--> help <--", "disabled"), pos=(0,0,-.1), scale=.07, rolloverSound=rollSound, command=helpMN)
-    b = DirectButton(text = ("exit", "---> exit <---", "--> exit <--", "disabled"), pos=(0,0,-.2), scale=.07, rolloverSound=rollSound, command=exitMN)
-
+    def start(self):
+        print("LOADING CENTRAL --------------------------_> ...")
+        self.hideMainMenu()
+        
 # For making modules"
 if __name__ == '__main__':
-    home()
+    mainMenu()
     # print('main.py is being run directly')
 else:
     # print("main.py is being imported")
