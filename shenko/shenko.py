@@ -55,23 +55,6 @@ def setupSequence():
     elif plt == "Linux":
         print("Your system is Linux")
         # create a user 'workspace' in /home/$USER/$workspace
-        # In which path does python search for information
-        #   python -m site --user-site
-        # Unless python 2, in which case try:
-        #   python -c 'import site; site._script()' --user-site
-        # Next, create a .pth file in that directory containing the
-        # path you wish to add (create the directory if doesn't exist)
-        # SITEDIR=$(python -m site --user-site)
-        #
-        # Create if doestn't exist, (plz add try: ifdir exist block here)
-        # mkdir -p "$SITEDIR"
-        #
-        # create new .pth file with our path
-        #   echo "$HOME/foo/bar" > "$SITEDIR/somelib.pth"
-        #
-        #---Creating Launcher---/
-        #  Do you want a launcher? raw_input? if yes, then ......
-        #
     elif plt == "Darwin":
         print("Your system is MacOS")
         # I beleivce it is same structure as Linux
