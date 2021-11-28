@@ -54,7 +54,7 @@ mainMenuState = True
 cameraActive = []     # if list is empty it is 'false'
 #--------------INIT FUNCTIONS---------------/
 # When Shenko installs with pip, this will add this folder to client's path
-dir_path = os.path.dirname(os.path.realpath(__file__))
+#dir_path = os.path.dirname(os.path.realpath(__file__))
 
 def setupSequence():
     print(os.listdir("."))
