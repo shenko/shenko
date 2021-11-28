@@ -30,7 +30,7 @@ test_requirements = [
 
 setup(
     name='shenko',
-    version='0.1.64',
+    version='0.1.65',
     description="visit us at www.shenko.org",
     long_description=readme + '\n\n' + history,
     author="Danny Dowshenko",
@@ -45,8 +45,7 @@ setup(
     'shenko.S06_OUTPUT',
     'shenko.S07_ROBOT_HOME',
     'shenko.S08_NETWORK',
-    'shenko.S09_EXTERNAL',
-    ]),
+    'shenko.S09_EXTERNAL']),
     #package_dir={"": "shenko"},
     # entry_point runs a script, let's try and skip this
     entry_points={
