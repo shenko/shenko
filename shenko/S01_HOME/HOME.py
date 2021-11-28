@@ -39,15 +39,17 @@ class mainMenu:
             #  Draw the Shenko LOGO
             self.imageObject = OnscreenImage(image ='logo.png', pos=(0, 0, .6), scale=0.5)
             self.imageObject.setImage('logo.png')
-        
+
             # Menu buttons
             rollSound = base.loader.loadSfx("click.ogg")
-            self.startbttn = DirectButton(text = ("start", "---> start <---", "--> start <--", "disabled"), 
-                                            pos=(0,0,.2), 
-                                            scale=.07, 
-                                            rolloverSound=rollSound, 
+            self.startbttn = DirectButton(text = ("start", "---> start <---", "--> start <--", "disabled"),
+                                            pos=(0,0,.2),
+                                            scale=.07,
+                                            rolloverSound=rollSound,
                                             command=self.start)
-        
+            self.mainMenuState = False
+            print('derp', self.mainMenuState)
+
     def hideMainMenu(self):
         print("#---#### ####---#")
         #DirectButton.destroy()
@@ -59,7 +61,7 @@ class mainMenu:
     def start(self):
         print("LOADING CENTRAL --------------------------_> ...")
         self.hideMainMenu()
-        
+
 # For making modules"
 if __name__ == '__main__':
     mainMenu()

@@ -9,6 +9,17 @@ __copyright__   = "http://creativecommons.org/licenses/by/3.0/legalcode"
 # MAIN MENU that threads
     -each 'core' element is a thread
     -main listens to 'core'
+
+# To be tested:
+After installing with pip, the path to my dirs seems to not registered
+with the 'clients' $PATH so I get something like missing S01_HOME
+
+To get the full path to the directory a Python file is contained in,
+write this in that file:
+
+import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
 """
 import sys
 import os
@@ -42,6 +53,9 @@ https://docs.panda3d.org/1.10/python/programming/tasks-and-events/tasks
 mainMenuState = True
 cameraActive = []     # if list is empty it is 'false'
 #--------------INIT FUNCTIONS---------------/
+# When Shenko installs with pip, this will add this folder to client's path
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
 def setupSequence():
     print(os.listdir("."))
     print(os.getcwd())
@@ -61,6 +75,10 @@ def setupSequence():
     else:
         print("Unidentified system")
 
+    #from panda3d.core import loadPrcFile
+    #if __debug__:
+    #    loadPrcFile("config.prc")
+
 #----------------MAIN------------------/
 class MyApp(ShowBase):
 
@@ -72,7 +90,9 @@ class MyApp(ShowBase):
         base.setBackgroundColor(0,0,0)
 
         # THE MAIN MENU
-        S01_HOME.HOME.mainMenu(mainMenuState, cameraActive)
+        print('menuDEB1', mainMenuState)
+        menu = S01_HOME.HOME.mainMenu(mainMenuState, cameraActive)
+        print('menuDEB2', mainMenuState)
 
         # KEYBOARD INPUT
         self.accept('escape', self.quit)
@@ -80,8 +100,6 @@ class MyApp(ShowBase):
         #self.accept('arrow_down-repeat', self.moveCam)
 
     def menuToggle(self):
-        #global mainMenuState
-        #global cameraActive
         S01_HOME.HOME.mainMenu(mainMenuState, cameraActive)
 
     def quit(self):
