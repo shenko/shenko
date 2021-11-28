@@ -36,7 +36,7 @@ import platform
 #import S08_NETWORK
 #import S09_EXTERNAL
 
-import S01_HOME.HOME
+from S01_HOME import HOME
 
 from direct.showbase.ShowBase import ShowBase
 from direct.gui.OnscreenText import OnscreenText
