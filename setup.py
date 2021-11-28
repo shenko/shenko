@@ -30,13 +30,23 @@ test_requirements = [
 
 setup(
     name='shenko',
-    version='0.1.63',
+    version='0.1.64',
     description="visit us at www.shenko.org",
     long_description=readme + '\n\n' + history,
     author="Danny Dowshenko",
     author_email='dowshenko225@gmail.com',
     url='https://github.com/shenko/shenko',
-    packages=find_packages(include=['shenko']),
+    packages=find_packages(include=['shenko',
+    'shenko.S01_HOME',
+    'shenko.S02_FILESYSTEM',
+    'shenko.S03_TEMPORARY',
+    'shenko.S04_INPUTS',
+    'shenko.S05_CENTRAL',
+    'shenko.S06_OUTPUT',
+    'shenko.S07_ROBOT_HOME',
+    'shenko.S08_NETWORK',
+    'shenko.S09_EXTERNAL',
+    ]),
     #package_dir={"": "shenko"},
     # entry_point runs a script, let's try and skip this
     entry_points={
@@ -70,5 +80,5 @@ setup(
     ],
     test_suite='tests',
     tests_require=test_requirements,
-    setup_requires=setup_requirements,
+    setup_requires=setup_requirements,python -c "import sys; print(sys.path)"
 )
