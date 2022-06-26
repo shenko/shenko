@@ -1,1 +1,0 @@
-from CENTRAL import MyApp

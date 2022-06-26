@@ -36,7 +36,8 @@ import platform
 #import S08_NETWORK
 #import S09_EXTERNAL
 
-from S01_HOME import HOME
+import S01_HOME.HOME
+import S05_CENTRAL.CENTRAL
 
 from direct.showbase.ShowBase import ShowBase
 from direct.gui.OnscreenText import OnscreenText
@@ -90,17 +91,19 @@ class MyApp(ShowBase):
         base.setBackgroundColor(0,0,0)
 
         # THE MAIN MENU
-        print('menuDEB1', mainMenuState)
-        menu = S01_HOME.HOME.mainMenu(mainMenuState, cameraActive)
-        print('menuDEB2', mainMenuState)
+        #print('menuDEB1', mainMenuState)
+        #menu = S01_HOME.HOME.mainMenu(mainMenuState, cameraActive)
+        #print('menuDEB2', mainMenuState)
 
         # KEYBOARD INPUT
         self.accept('escape', self.quit)
         self.accept('m', self.menuToggle)
         #self.accept('arrow_down-repeat', self.moveCam)
+        self.accept('f', S05_CENTRAL.CENTRAL.menuToggle)
 
     def menuToggle(self):
-        S01_HOME.HOME.mainMenu(mainMenuState, cameraActive)
+        #S01_HOME.HOME.mainMenu(mainMenuState, cameraActive)
+        S05_CENTRAL.CENTRAL.Central(mainMenuState)
 
     def quit(self):
     	print("quitting shenko")
