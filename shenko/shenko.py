@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #FILE:          main.py
 #SOURCE:        https://github.com/shenko/shenko/blob/master/shenko/shenko.py
@@ -23,8 +23,6 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 """
 import sys
 import os
-import time
-import platform
 
 #import S01_HOME
 #import S02_FILESYSTEM
@@ -36,11 +34,11 @@ import platform
 #import S08_NETWORK
 #import S09_EXTERNAL
 
+import S00_CORE.CORE
 import S01_HOME.HOME
 import S05_CENTRAL.CENTRAL
 
 from direct.showbase.ShowBase import ShowBase
-from direct.gui.OnscreenText import OnscreenText
 
 #-------------SYNOPSIS------------------/
 """
@@ -51,59 +49,49 @@ https://docs.panda3d.org/1.10/python/programming/tasks-and-events/tasks
 # and putter on every other node
 """
 #--------------VARIABLES---------------/
-mainMenuState = True
+mainMenuState = False
+menuChoice = ''
 cameraActive = []     # if list is empty it is 'false'
-#--------------INIT FUNCTIONS---------------/
-# When Shenko installs with pip, this will add this folder to client's path
-#dir_path = os.path.dirname(os.path.realpath(__file__))
-
-def setupSequence():
-    print(os.listdir("."))
-    print(os.getcwd())
-    # I want to know where to download Shenko Models/Assets
-    # It may be different on certain platforms
-    plt = platform.system()
-
-    if plt == "Windows":
-        print("Your system is Windows")
-        # create a users 'workspace' in C:\
-    elif plt == "Linux":
-        print("Your system is Linux")
-        # create a user 'workspace' in /home/$USER/$workspace
-    elif plt == "Darwin":
-        print("Your system is MacOS")
-        # I beleivce it is same structure as Linux
-    else:
-        print("Unidentified system")
-
-    #from panda3d.core import loadPrcFile
-    #if __debug__:
-    #    loadPrcFile("config.prc")
 
 #----------------MAIN------------------/
 class MyApp(ShowBase):
-
     def __init__(self):
         ShowBase.__init__(self)
         global mainMenuState
-        global cameraActive
+        global menuChoice
+
         # The background color
         base.setBackgroundColor(0,0,0)
 
-        # THE MAIN MENU
-        #print('menuDEB1', mainMenuState)
-        #menu = S01_HOME.HOME.mainMenu(mainMenuState, cameraActive)
-        #print('menuDEB2', mainMenuState)
+        # Loading up the shenko core
+        mainMenuState = S00_CORE.CORE.Core()    # menuToggle = True automatically when done
+
+        # Creating a Menu Class
+        self.menuClass = S00_CORE.CORE.mainMenu(mainMenuState)
+        menuChoice = str(self.menuClass)
+        print("CHA CHA CHOICES: ", menuChoice)
 
         # KEYBOARD INPUT
         self.accept('escape', self.quit)
         self.accept('m', self.menuToggle)
         #self.accept('arrow_down-repeat', self.moveCam)
-        self.accept('f', S05_CENTRAL.CENTRAL.menuToggle)
 
     def menuToggle(self):
-        #S01_HOME.HOME.mainMenu(mainMenuState, cameraActive)
-        S05_CENTRAL.CENTRAL.Central(mainMenuState)
+        global mainMenuState
+        """
+        mainMenuState = S00_CORE.CORE.menuToggle(mainMenuState)
+        if mainMenuState != mainMenuState:
+            mainMenuState = mainMenuState
+        """
+        if mainMenuState == True:
+            mainMenuState = False
+            self.menuClass.hideMenu(mainMenuState)
+            del self.menuClass
+        else:
+            mainMenuState = True
+            self.menuClass = S00_CORE.CORE.mainMenu(mainMenuState)
+            menuChoice = str(self.menuClass)
+            print("CHA CHA CHOICES: ", menuChoice)
 
     def quit(self):
     	print("quitting shenko")
@@ -112,10 +100,10 @@ class MyApp(ShowBase):
 # For making modules"
 if __name__ == '__main__':
     print('main.py is being run directly')
-    setupSequence()
     app = MyApp()
     app.run()
 else:
     print("Shenko main is being imported, with no setup")
     app = MyApp()
     app.run()
+

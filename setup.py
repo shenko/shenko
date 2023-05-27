@@ -80,4 +80,32 @@ setup(
     ],
     test_suite='tests',
     tests_require=test_requirements,
+    options={
+        'build_apps': {
+            # Build a GUI application shenko.exe
+            'gui_apps': {
+                'shenko': 'shenko.py',
+            },
+            # Set up output logging, important for GUI apps!
+            'log_filename': '$USER_APPDATA/Asteroids/output.log',
+            'log_append': False,
+            # Specify which files are included with the distribution
+            'include_patterns': [
+                '**/*.png',
+                '**/*.jpg',
+                '**/*.gltf',
+            ],
+            # Include the OpenGL renderer and OpenAL audio plug-in
+            'plugins': [
+                'pandagl',
+                'p3openal_audio',
+            ],
+            'platforms': [
+                'manylinux1_x86_64',
+                'macosx_10_6_x86_64',
+                'win_amd64',
+            ],
+        }
+    }
+
 )
