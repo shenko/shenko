@@ -13,8 +13,6 @@ MAIN MENU that threads
 import os
 import sys
 import time
-import platform     # used in 'setupSequence()'
-import site         # used in '*_sitePackages()'
 
 # Used for 'Loading...' text
 from direct.gui.OnscreenText import OnscreenText
@@ -24,77 +22,6 @@ from direct.gui.DirectGui import *
 from direct.gui.OnscreenImage import OnscreenImage  # To draw the logo
 # For rolling over button sounds
 from panda3d.core import AudioSound
-
-def setupSequence():
-    # I want to know where to download Shenko Models/Assets
-    # It may be different on certain platforms
-    plt = platform.system()
-    if plt == "Windows":
-        print("Your system is Windows")
-        # create a users 'workspace' in C:\
-    elif plt == "Linux":
-        print("Your system is Linux")
-        linux_sitePackages()
-    elif plt == "Darwin":
-        print("Your system is MacOS")
-        # I beleivce it is same structure as Linux
-    else:
-        print("System Unidentified")
-
-    # Find shenko manifest and update if needed
-    #       print("Checking shenko manifest")
-    #       print("manifest OK, nothing to download")
-    #       print("Current Working Directory: ", os.getcwd())
-    #       print(os.listdir("."))
-
-    #from panda3d.core import loadPrcFile
-    #if __debug__:
-    #    loadPrcFile("config.prc")
-
-def linux_sitePackages():
-    # Get site packages directories
-    site_packages = site.getsitepackages()
-    siteUserLocations = site.getusersitepackages()
-
-    # Directory to join
-    shenkoAppDir = 'shenko'
-
-    # If paths get found later(below), we'll want to add them to .profile
-    def pythonPathProfileAdd(file_path, word):
-        #bashExportPathCmd = 'export PYTHONPATH=$PYTHONPATH:' + str(file_path)
-        #try:
-        #    pathAdd = subprocess.run([bashExportPathCmd], shell=True, check=True)
-        #    print(pathAdd.stdout)
-        #    #os.system('export PYTHONPATH=/usr/local/bin/python3.4')
-        #except:
-        #    print('Something went wrong, could not add $path to ~/.bash_profile')
-        #    print('You can try and run shenko directly from: ')
-        #    print(os.path.join(path, file_path, word))
-
-        # You could add the path via your pythonrc file, which defaults to ~/.pythonrc
-        try:
-            sys.path.append(file_path)
-            print('Added: ', file_path, ' To Python $PATHS')
-        except:
-            print('Something went wrong, could not add $path to ~/.pythonrc')
-            print('You can try and run shenko directly from: ')
-            print(os.path.join(path, file_path, word))
-
-    # Check GLOBAL site package locations
-    for site_package in site_packages:
-        shenkoPath = os.path.join(site_package, shenkoAppDir)
-        exists = os.path.exists(shenkoPath)
-        if exists == True:
-            print(f"Path: {shenkoPath} - Exists: {exists}")
-            # This function will try to add shenko.py path to .profile
-            pythonPathProfileAdd(shenkoPath, 'shenko.py')
-
-    # Check USER site package location
-    shenkoPath = os.path.join(siteUserLocations, shenkoAppDir)
-    exists = os.path.exists(shenkoPath)
-    if exists == True:
-        print(f"Path: {shenkoPath} - Exists: {exists}")
-        pythonPathProfileAdd(shenkoPath, 'shenko.py')
 
 def Core():
     # SEE: Panda3d threading
