@@ -141,7 +141,7 @@ class MyApp(ShowBase):
         # Then from there if Main is called we spin up the others
         # or if multi-player is called we do something else
         # or options etc...
-        import S00_CORE.CORE
+        import S00_CORE
 
         # The background color
         base.setBackgroundColor(0,0,0)
