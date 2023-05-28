@@ -36,8 +36,8 @@ import site         # used in '*_sitePackages()'
 #import S08_NETWORK
 #import S09_EXTERNAL
 
-#???from S00_CORE.CORE import 
-import S00_CORE.CORE
+from S00_CORE.CORE import *
+#import S00_CORE.CORE
 #import S01_HOME.HOME
 #import S05_CENTRAL.CENTRAL
 
@@ -142,10 +142,12 @@ class MyApp(ShowBase):
         base.setBackgroundColor(0,0,0)
 
         # Loading up the shenko core
-        mainMenuState = S00_CORE.CORE.Core()    # menuToggle = True automatically when done
+        #mainMenuState = S00_CORE.CORE.Core()    # menuToggle = True automatically when done
+        mainMenuState = Core()
 
         # Creating a Menu Class
-        self.menuClass = S00_CORE.CORE.mainMenu(mainMenuState)
+        #self.menuClass = S00_CORE.CORE.mainMenu(mainMenuState)
+        self.menuClass = mainMenu(mainMenuState)
         menuChoice = str(self.menuClass)
         print("CHA CHA CHOICES: ", menuChoice)
 
@@ -167,7 +169,8 @@ class MyApp(ShowBase):
             del self.menuClass
         else:
             mainMenuState = True
-            self.menuClass = S00_CORE.CORE.mainMenu(mainMenuState)
+            #self.menuClass = S00_CORE.CORE.mainMenu(mainMenuState)
+            self.menuClass = mainMenu(mainMenuState)
             menuChoice = str(self.menuClass)
             print("CHA CHA CHOICES: ", menuChoice)
 
