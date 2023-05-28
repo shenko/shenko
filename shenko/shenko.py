@@ -60,6 +60,8 @@ class MyApp(ShowBase):
         global mainMenuState
         global menuChoice
 
+        S00_CORE.CORE.setupSequence()
+
         # The background color
         base.setBackgroundColor(0,0,0)
 
