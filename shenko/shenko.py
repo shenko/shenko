@@ -62,14 +62,9 @@ class MyApp(ShowBase):
         global mainMenuState
         if mainMenuState == True:
             mainMenuState = False
-            #self.menuClass.hideMenu(mainMenuState)
-            #del self.menuClass
             print("Main Menu is hidden")
         else:
             mainMenuState = True
-            self.menuClass = mainMenu
-            #menuChoice = str(self.menuClass)
-            #print("CHA CHA CHOICES: ", menuChoice)
             print("Main Menu is showing")
 
     def quit(self):
