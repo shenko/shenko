@@ -2,10 +2,11 @@
 Credits
 =======
 
-Development Lead
+Development Team
 ----------------
 
 * Danny Dowshenko <dowshenko225@gmail.com>
+* Vic Dowshenko <vic.dowshenko@shenko.org>
 
 Contributors
 ------------
