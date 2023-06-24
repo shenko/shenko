@@ -36,7 +36,7 @@ setup(
     author='Shenko Development Team',
     author_email='shenko.org@gmail.com',
     url='https://github.com/shenko/shenko',
-    packages=find_packages(),
+    packages=['shenko', 'shenko.s00_init'],
     entry_points={
         'console_scripts': [
             'shenko = shenko.shenko:main',
