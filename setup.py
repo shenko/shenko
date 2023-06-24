@@ -33,22 +33,10 @@ setup(
     version='0.1.80',
     description="visit us at www.shenko.org",
     long_description=readme + '\n\n' + history,
-    author="Danny Dowshenko",
-    author_email='dowshenko225@gmail.com',
+    author='Shenko Development Team',
+    author_email='shenko.org@gmail.com',
     url='https://github.com/shenko/shenko',
-    packages=find_packages(include=['shenko',
-                                    'shenko.S01_HOME',
-                                    'shenko.S02_FILESYSTEM',
-                                    'shenko.S03_TEMPORARY',
-                                    'shenko.S04_INPUTS',
-                                    'shenko.S05_CENTRAL',
-                                    'shenko.S06_OUTPUT',
-                                    'shenko.S07_ROBOT_HOME',
-                                    'shenko.S08_NETWORK',
-                                    'shenko.S09_EXTERNAL'
-                                    ]),
-    #package_dir={"": "shenko"},
-    # entry_point runs a script, let's try and skip this
+    packages=find_packages(),
     entry_points={
         'console_scripts': [
             'shenko = shenko.shenko:main',

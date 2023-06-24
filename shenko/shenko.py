@@ -39,6 +39,8 @@ __copyright__   = "http://creativecommons.org/licenses/by/3.0/legalcode"
 import os
 import sys
 
+from s00_init import platformer, configurator
+
 # Third-party imports
 from direct.showbase.ShowBase import ShowBase
 
@@ -65,6 +67,16 @@ class MyApp(ShowBase):
         if mainMenuState == True:
             print("Main Menu showing")
             # show mouse cursor
+
+        # Access functions from platformer module
+        platformer.start_platformer()
+        platformer.jump()
+        platformer.move("right")
+
+        # Access functions from configurator module
+        configurator.configure_settings()
+        configurator.set_resolution(1920, 1080)
+        configurator.set_volume(0.8)
 
         # Input
         self.accept('escape', self.quit)
