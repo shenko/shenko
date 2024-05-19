@@ -2,6 +2,7 @@
 
 """The setup script."""
 
+# don't need find_packages for panda3d I'm pretty sure I read that
 from setuptools import setup, find_packages
 
 with open('README.rst') as readme_file:
@@ -40,16 +41,10 @@ setup(
                                     'shenko.s00_init'
                                     ]),
     entry_points={
-        'console_scripts': [
+        'gui_apps': [
             'shenko = shenko.shenko:main',
         ],
     },
-    # This was the old entry point to run shenko as command line
-    #entry_points={
-    #    'console_scripts': [
-    #        'shenko=shenko.cli:main',
-    #    ],
-    #},
     include_package_data=True,
     package_data={'shenko': ['*.ogg', 'logo.png']},
     install_requires=requirements,
@@ -72,12 +67,12 @@ setup(
     tests_require=test_requirements,
     options={
         'build_apps': {
-            # Build a GUI application shenko.exe
+            # Build a GUI application
             'gui_apps': {
-                'shenko': 'shenko.py',
+                'shenko': 'shenko/shenko.py',
             },
             # Set up output logging, important for GUI apps!
-            'log_filename': '$USER_APPDATA/Asteroids/output.log',
+            'log_filename': '$USER_APPDATA/shenko/output.log',
             'log_append': False,
             # Specify which files are included with the distribution
             'include_patterns': [
@@ -91,11 +86,10 @@ setup(
                 'p3openal_audio',
             ],
             'platforms': [
-                'manylinux1_x86_64',
-                'macosx_10_6_x86_64',
+                'manylinux2014_x86_64',
+                'macosx_10_9_x86_64',
                 'win_amd64',
             ],
         }
     }
-
 )

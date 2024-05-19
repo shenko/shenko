@@ -35,74 +35,47 @@ __author__      = "Shenko Development Team"
 __email__       = "shenko.org@gmail.com"
 __copyright__   = "http://creativecommons.org/licenses/by/3.0/legalcode"
 
-# Standard library imports
+# Python imports
 import os
 import sys
 
-from s00_init import platformer, configurator
-
-# Third-party imports
+# Panda imports
+from pandac.PandaModules import WindowProperties
 from direct.showbase.ShowBase import ShowBase
 
 # Local imports
+import s00_init
 
-
-#--------------VARIABLES---------------/
-mainMenuState = True
-cameraActive = []     # if list is empty it is 'false'
-
-#----------------MAIN------------------/
-class MyApp(ShowBase):
+class shenkoApp(ShowBase):
     def __init__(self):
         ShowBase.__init__(self)
-        global mainMenuState
-
-        # Debug
-        print("escape key to exit, 'm' key to toggle menu")
 
         # The background color
         base.setBackgroundColor(0,0,0)
+        # Add a title to the window
+        win_props = WindowProperties()
+        win_props.setTitle('Shenko.org')
+        self.win.requestProperties(win_props)
 
-        # Main Menu
-        if mainMenuState == True:
-            print("Main Menu showing")
-            # show mouse cursor
+        self.rollSound = base.loader.loadSfx("assets/audio/click.ogg")
 
-        # Access functions from platformer module
-        platformer.start_platformer()
-        platformer.jump()
-        platformer.move("right")
 
-        # Access functions from configurator module
-        configurator.configure_settings()
-        configurator.set_resolution(1920, 1080)
-        configurator.set_volume(0.8)
+        state = s00_init.AppState("Application")
+        state.request("Menu")
 
         # Input
-        self.accept('escape', self.quit)
-        self.accept('m', self.menuToggle)
+        self.accept('escape', s00_init.quit)
+        self.accept("f11", s00_init.toggle_fullscreen)
+        #self.accept('m', self.menuToggle)
         #self.accept('arrow_down-repeat', self.moveCam)
-
-    def menuToggle(self):
-        global mainMenuState
-        if mainMenuState == True:
-            mainMenuState = False
-            print("Main Menu is hidden")
-        else:
-            mainMenuState = True
-            print("Main Menu is showing")
-
-    def quit(self):
-    	print("quitting shenko")
-    	sys.exit()
 
 # For making modules"
 if __name__ == '__main__':
     print('main.py is being run directly')
-    app = MyApp()
+    app = shenkoApp()
     app.run()
 else:
     print("Shenko main is being imported, with no setup")
-    app = MyApp()
+    app = shenkoApp()
     app.run()
 

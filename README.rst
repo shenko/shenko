@@ -22,8 +22,7 @@ https://www.shenko.org/
 .. image:: https://img.shields.io/pypi/v/shenko.svg
         :target: https://pypi.python.org/pypi/shenko
 
-.. image:: https://img.shields.io/travis/shenko/shenko.svg
-        :target: https://travis-ci.org/shenko/shenko
+[![shenko](https://snapcraft.io/shenko/badge.svg)](https://snapcraft.io/shenko)
 
 .. image:: https://readthedocs.org/projects/shenko/badge/?version=latest
         :target: https://shenko.readthedocs.io/en/latest/?badge=latest

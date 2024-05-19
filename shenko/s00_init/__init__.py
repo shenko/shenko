@@ -1,2 +1,2 @@
-from .platformer import *
-from .configurator import *
+from .menu import *
+
