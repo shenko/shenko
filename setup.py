@@ -39,7 +39,7 @@ all_files = audio_files + image_files
 
 setup(
     name='shenko',
-    version='0.1.84',
+    version='0.1.85',
     description="visit us at www.shenko.org",
     long_description=readme + '\n\n' + history,
     author='Shenko Development Team',
