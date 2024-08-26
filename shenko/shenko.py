@@ -28,37 +28,45 @@ License:
     #
     # You should have received a copy of the GNU General Public License
     # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 """
 
-__author__      = "Shenko Development Team"
-__email__       = "shenko.org@gmail.com"
-__copyright__   = "http://creativecommons.org/licenses/by/3.0/legalcode"
+__author__ = "Shenko Development Team"
+__email__ = "shenko.org@gmail.com"
+__copyright__ = "http://creativecommons.org/licenses/by/3.0/legalcode"
 
 # Python imports
 import os
 import sys
+import traceback
 
 # Panda imports
-from pandac.PandaModules import WindowProperties
+from panda3d.core import WindowProperties
 from direct.showbase.ShowBase import ShowBase
 
 # Local imports
 import s00_init
+
+# Function to log uncaught exceptions
+def log_uncaught_exceptions(ex_cls, ex, tb):
+    with open("error_log.txt", "w") as f:
+        f.write(f"{ex_cls.__name__}: {ex}\n")
+        traceback.print_tb(tb, file=f)
+
+# Set the global exception hook to log exceptions
+sys.excepthook = log_uncaught_exceptions
 
 class shenkoApp(ShowBase):
     def __init__(self):
         ShowBase.__init__(self)
 
         # The background color
-        base.setBackgroundColor(0,0,0)
+        base.setBackgroundColor(0, 0, 0)
         # Add a title to the window
         win_props = WindowProperties()
         win_props.setTitle('Shenko.org')
         self.win.requestProperties(win_props)
 
         self.rollSound = base.loader.loadSfx("assets/audio/click.ogg")
-
 
         state = s00_init.AppState("Application")
         state.request("Menu")
@@ -69,7 +77,7 @@ class shenkoApp(ShowBase):
         #self.accept('m', self.menuToggle)
         #self.accept('arrow_down-repeat', self.moveCam)
 
-# For making modules"
+# For making modules
 if __name__ == '__main__':
     print('main.py is being run directly')
     app = shenkoApp()
@@ -78,4 +86,3 @@ else:
     print("Shenko main is being imported, with no setup")
     app = shenkoApp()
     app.run()
-

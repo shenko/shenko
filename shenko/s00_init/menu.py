@@ -11,6 +11,7 @@ class AppState(FSM):
         self.version_text = OnscreenText(text="v0.1.83", pos=(0.95, -0.95), scale=0.05,
                                     fg=(0, 1, 1, 1), bg=(0, 0, 0, .5), align=TextNode.ACenter, mayChange=1)
 
+        #self.rollSound = base.loader.loadSfx("../assets/audio/click.ogg")
         self.rollSound = base.loader.loadSfx("assets/audio/click.ogg")
 
         # Creating the 'START' Button
@@ -122,8 +123,9 @@ class AppState(FSM):
 
         # Calculate the corresponding width based on the desired height and aspect ratio
         desired_width = desired_height * aspect_ratio
+        #self.logo_image = OnscreenImage(image='../assets/images/logo.png', pos=(0, 0, .4), scale=(desired_width, 1, desired_height))
+        # DEBUG!! cause it didn't work when we built the game for windows despite the files being there!        
         self.logo_image = OnscreenImage(image='assets/images/logo.png', pos=(0, 0, .4), scale=(desired_width, 1, desired_height))
-
 
     def exitMenu(self):
         # Destroy the OnscreenText element
@@ -266,36 +268,6 @@ class AppState(FSM):
     def exitHelp(self):
         self.menuBtn.destroy()
         self.smiley.removeNode()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 def toggle_fullscreen():
     win_props = WindowProperties()

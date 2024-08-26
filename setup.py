@@ -4,6 +4,8 @@
 
 # don't need find_packages for panda3d I'm pretty sure I read that
 from setuptools import setup, find_packages
+import os
+import glob
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -29,6 +31,12 @@ test_requirements = [
     # 		do we need to add 'unitest'???
 ]
 
+audio_files = glob.glob('assets/audio/*.ogg') + glob.glob('assets/audio/*.wav')
+image_files = glob.glob('assets/images/*.png')
+
+# Combine all files into one list
+all_files = audio_files + image_files
+
 setup(
     name='shenko',
     version='0.1.84',
@@ -38,15 +46,14 @@ setup(
     author_email='shenko.org@gmail.com',
     url='https://github.com/shenko/shenko',
     packages=find_packages(include=['shenko',
-                                    'shenko.s00_init'
+                                    'shenko.*'
                                     ]),
+    include_package_data=True,
     entry_points={
         'gui_apps': [
             'shenko = shenko.shenko:main',
         ],
     },
-    include_package_data=True,
-    package_data={'shenko': ['*.ogg', 'logo.png']},
     install_requires=requirements,
     license="GNU General Public License v3",
     zip_safe=False,
@@ -79,6 +86,8 @@ setup(
                 '**/*.png',
                 '**/*.jpg',
                 '**/*.gltf',
+                '**/*.ogg',
+                '**/*.wav'
             ],
             # Include the OpenGL renderer and OpenAL audio plug-in
             'plugins': [
