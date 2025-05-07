@@ -1,15 +1,19 @@
-pip==19.1.1
-bumpversion==0.5.3
-wheel==0.30.0
-#watchdog==0.8.3
-flake8==3.5.0
-tox==2.9.1
-#coverage==4.4.2
-Sphinx==1.6.5
-twine==1.9.1
-#rust>=0.1.1
-#cryptography>=2.8
-PyYAML>=5.1
-pytest==4.6.9
-pytest-runner==2.11.1
+# Core dependencies
 panda3D>=1.10.10
+
+# Development dependencies
+pip>=23.0.0
+bumpversion>=0.6.0
+wheel>=0.40.0
+flake8>=6.0.0
+tox>=4.6.0
+Sphinx>=7.0.0
+twine>=4.0.0
+PyYAML>=6.0.0
+pytest>=7.3.0
+pytest-runner>=6.0.0
+
+# Commented out dependencies (may be needed in future)
+# watchdog>=3.0.0
+# coverage>=7.0.0
+# cryptography>=41.0.0

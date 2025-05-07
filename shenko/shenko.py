@@ -5,7 +5,7 @@
 Shenko
 ===================
 
-Shenko is a open source platform that uses the Panda3d game engine.
+Shenko is an open source platform that uses the Panda3D game engine.
 You can visit us on our website www.shenko.org
 or find this code on github/shenko:
     https://github.com/shenko/shenko/blob/master/shenko/shenko.py
@@ -37,23 +37,25 @@ __copyright__ = "http://creativecommons.org/licenses/by/3.0/legalcode"
 # Python imports
 import os
 import sys
-import traceback
+
+# Add parent directory to path for imports
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from _version import __version__
 
 # Panda imports
 from panda3d.core import WindowProperties
 from direct.showbase.ShowBase import ShowBase
 
 # Local imports
-import s00_init
+from shenko.s00_init import AppState, toggle_fullscreen, quit
+from shenko.utils.logger import setup_logger, log_uncaught_exception
+from shenko.utils.assets import get_audio_path
 
-# Function to log uncaught exceptions
-def log_uncaught_exceptions(ex_cls, ex, tb):
-    with open("error_log.txt", "w") as f:
-        f.write(f"{ex_cls.__name__}: {ex}\n")
-        traceback.print_tb(tb, file=f)
+# Set up logging
+logger = setup_logger()
 
 # Set the global exception hook to log exceptions
-sys.excepthook = log_uncaught_exceptions
+sys.excepthook = log_uncaught_exception
 
 class shenkoApp(ShowBase):
     def __init__(self):
@@ -66,14 +68,16 @@ class shenkoApp(ShowBase):
         win_props.setTitle('Shenko.org')
         self.win.requestProperties(win_props)
 
-        self.rollSound = base.loader.loadSfx("assets/audio/click.ogg")
+        # Load sound using the asset utility
+        self.rollSound = base.loader.loadSfx(get_audio_path("click.ogg"))
 
-        state = s00_init.AppState("Application")
+        # Initialize the application state
+        state = AppState("Application")
         state.request("Menu")
 
-        # Input
-        self.accept('escape', s00_init.quit)
-        self.accept("f11", s00_init.toggle_fullscreen)
+        # Input handlers
+        self.accept('escape', quit)
+        self.accept("f11", toggle_fullscreen)
         #self.accept('m', self.menuToggle)
         #self.accept('arrow_down-repeat', self.moveCam)
 

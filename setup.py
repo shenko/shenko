@@ -6,6 +6,17 @@
 from setuptools import setup, find_packages
 import os
 import glob
+import re
+
+# Import version from _version.py
+with open('_version.py', 'r') as f:
+    version_file = f.read()
+
+version_match = re.search(r"__version__ = ['\"]([^'\"]*)['\"]", version_file)
+if version_match:
+    version = version_match.group(1)
+else:
+    raise RuntimeError('Unable to find version string in _version.py')
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -39,7 +50,7 @@ all_files = audio_files + image_files
 
 setup(
     name='shenko',
-    version='0.1.85',
+    version=version,
     description="visit us at www.shenko.org",
     long_description=readme + '\n\n' + history,
     author='Shenko Development Team',
