@@ -5,7 +5,7 @@
 Shenko
 ===================
 
-Shenko is an open source platform that uses the Panda3D game engine.
+Shenko is a open source platform that uses the Panda3d game engine.
 You can visit us on our website www.shenko.org
 or find this code on github/shenko:
     https://github.com/shenko/shenko/blob/master/shenko/shenko.py
@@ -28,60 +28,48 @@ License:
     #
     # You should have received a copy of the GNU General Public License
     # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 """
 
-__author__ = "Shenko Development Team"
-__email__ = "shenko.org@gmail.com"
-__copyright__ = "http://creativecommons.org/licenses/by/3.0/legalcode"
+__author__      = "Shenko Development Team"
+__email__       = "shenko.org@gmail.com"
+__copyright__   = "http://creativecommons.org/licenses/by/3.0/legalcode"
 
 # Python imports
 import os
 import sys
 
-# Add parent directory to path for imports
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from _version import __version__
-
 # Panda imports
-from panda3d.core import WindowProperties
+from pandac.PandaModules import WindowProperties
 from direct.showbase.ShowBase import ShowBase
 
 # Local imports
-from shenko.s00_init import AppState, toggle_fullscreen, quit
-from shenko.utils.logger import setup_logger, log_uncaught_exception
-from shenko.utils.assets import get_audio_path
-
-# Set up logging
-logger = setup_logger()
-
-# Set the global exception hook to log exceptions
-sys.excepthook = log_uncaught_exception
+import s00_init
 
 class shenkoApp(ShowBase):
     def __init__(self):
         ShowBase.__init__(self)
 
         # The background color
-        base.setBackgroundColor(0, 0, 0)
+        base.setBackgroundColor(0,0,0)
         # Add a title to the window
         win_props = WindowProperties()
         win_props.setTitle('Shenko.org')
         self.win.requestProperties(win_props)
 
-        # Load sound using the asset utility
-        self.rollSound = base.loader.loadSfx(get_audio_path("click.ogg"))
+        self.rollSound = base.loader.loadSfx("assets/audio/click.ogg")
 
-        # Initialize the application state
-        state = AppState("Application")
+
+        state = s00_init.AppState("Application")
         state.request("Menu")
 
-        # Input handlers
-        self.accept('escape', quit)
-        self.accept("f11", toggle_fullscreen)
+        # Input
+        self.accept('escape', s00_init.quit)
+        self.accept("f11", s00_init.toggle_fullscreen)
         #self.accept('m', self.menuToggle)
         #self.accept('arrow_down-repeat', self.moveCam)
 
-# For making modules
+# For making modules"
 if __name__ == '__main__':
     print('main.py is being run directly')
     app = shenkoApp()
@@ -90,3 +78,4 @@ else:
     print("Shenko main is being imported, with no setup")
     app = shenkoApp()
     app.run()
+
