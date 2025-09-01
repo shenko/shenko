@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+# version: 0.1.85
 """The setup script."""
 
 # don't need find_packages for panda3d I'm pretty sure I read that
