@@ -8,7 +8,7 @@ from pandac.PandaModules import WindowProperties
 class AppState(FSM):
     def enterMenu(self):
         # We will need to fix this so it automatically gets version!
-        self.version_text = OnscreenText(text="v0.1.83", pos=(0.95, -0.95), scale=0.05,
+        self.version_text = OnscreenText(text="0.1.86", pos=(0.95, -0.95), scale=0.05,
                                     fg=(0, 1, 1, 1), bg=(0, 0, 0, .5), align=TextNode.ACenter, mayChange=1)
 
         self.rollSound = base.loader.loadSfx("assets/audio/click.ogg")
