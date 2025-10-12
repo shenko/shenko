@@ -1,6 +1,6 @@
 # Shenko Project Context & Developer Guide
 
-**Version:** 0.1.88  
+**Version:** 0.1.87  
 **Last Updated:** December 10, 2025  
 **Purpose:** Comprehensive context for AI assistants and developers working on Shenko
 
@@ -141,7 +141,7 @@ Back to Menu
 - `shenko/__init__.py` - Imports from `_version.py`
 - `s00_init/menu.py` - Should import dynamically (TODO)
 
-**Current Version:** 0.1.88
+**Current Version:** 0.1.87
 
 ### 3. Import Strategy
 **Challenge:** Support three execution contexts:
@@ -461,7 +461,7 @@ Run the application and verify:
 
 ## Recent Changes Log
 
-### 2025-12-10 - Version 0.1.88 - Snapcraft Integration & Multi-Platform Deployment
+### 2025-12-10 - Version 0.1.87+ - Snapcraft Integration & Multi-Platform Deployment (In Progress)
 **Changed by:** AI Assistant (Claude via Cline)
 
 **Changes:**
