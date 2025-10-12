@@ -6,6 +6,47 @@
 
 ---
 
+## 🤖 AI ASSISTANT DIRECTIVE - READ THIS FIRST!
+
+**⚠️ CRITICAL: If you are an AI assistant working on this project, you MUST:**
+
+1. **ALWAYS UPDATE THIS FILE** when making changes to the project
+   - Add entries to "Recent Changes Log" section
+   - Update relevant sections that changed
+   - Document WHY decisions were made, not just WHAT changed
+
+2. **ALWAYS LOG TO IMPROVEMENTS.md**
+   - Create detailed entries with date, problems solved, changes made
+   - Include code snippets or examples where helpful
+   - Leave breadcrumbs for future AI assistants
+
+3. **USE THIS TEMPLATE for updates:**
+   ```markdown
+   ### YYYY-MM-DD - Version X.X.XX - [Brief Title]
+   **Changed by:** AI Assistant | Human Developer
+   **Changes:**
+   - [What changed]
+   - [Why it changed]
+   - [Impact/consequences]
+   
+   **Testing:**
+   - [What was tested]
+   - [Results]
+   
+   **Next Steps:**
+   - [What needs attention]
+   ```
+
+4. **BEFORE any build/release:**
+   - Verify all version numbers match
+   - Check all import patterns work
+   - Review RELEASING.md checklist
+   - Update this file with release notes
+
+**This documentation is the MEMORY of the project. Keep it accurate and detailed!**
+
+---
+
 ## Table of Contents
 1. [Project Overview](#project-overview)
 2. [Architecture](#architecture)
@@ -409,21 +450,65 @@ Run the application and verify:
 
 ## Recent Changes Log
 
-### 2025-12-10 - Version 0.1.86
-**Changes:**
-1. Fixed version discrepancy in `__init__.py` (0.1.83 → 0.1.86)
-2. Updated imports in `__init__.py` to use relative imports
-3. Enhanced asset management to use `get_audio_path()` and `get_image_path()`
-4. Created comprehensive PROJECT_CONTEXT.md documentation
+### 2025-12-10 - Version 0.1.86 - Build System Overhaul & PyPI Success
+**Changed by:** AI Assistant (Claude via Cline)
 
-**Issues Encountered:**
-- Relative imports broke direct script execution
-- Need conditional imports for multi-context support
+**Critical Problems Solved:**
+1. **Metadata-Version 2.4 Incompatibility with PyPI**
+   - New setuptools (>=70.0.0) generates Metadata-Version 2.4
+   - PyPI only accepts up to Metadata-Version 2.2
+   - Solution: Created `pyproject.toml` with pinned `setuptools<70.0.0`
+
+2. **Import Errors Across Execution Contexts**
+   - Code failed when run as direct script vs module vs pip install
+   - Solution: Implemented conditional imports with try/except fallbacks
+   - Pattern: Try relative imports first, fall back to absolute imports
+
+3. **Deprecated Panda3D Imports**
+   - Using old `pandac.PandaModules` causing warnings
+   - Solution: Replaced with modern `panda3d.core` imports
+
+**Files Created:**
+- `pyproject.toml` - Modern Python packaging configuration
+- `CONTRIBUTING.md` - Guide for open-source contributors
+- `RELEASING.md` - Maintainer's release checklist/guide
+- Added AI ASSISTANT DIRECTIVE to PROJECT_CONTEXT.md
+
+**Files Modified:**
+- `shenko/shenko.py` - Fixed imports with conditional pattern
+- `shenko/s00_init/menu.py` - Fixed imports and deprecated Panda3D imports
+- `shenko/__init__.py` - Version sync to 0.1.86
+- `setup.cfg` - Removed conflicting metadata, added pyproject.toml to bumpversion
+- `_version.py` - Confirmed correct version (0.1.86)
+
+**Testing Results:**
+- ✅ Direct script execution: `python3 shenko/shenko.py` - SUCCESS
+- ✅ Module execution: `python3 -m shenko.shenko` - SUCCESS
+- ✅ Package build: `python3 -m build` - SUCCESS
+- ✅ Twine validation: `twine check dist/*` - PASSED
+- ✅ PyPI upload: Version 0.1.86 - SUCCESS
+
+**Build System Improvements:**
+- Uses `pyproject.toml` as single source of truth for metadata
+- Automatic version management via bumpversion (all files updated together)
+- Compatible metadata generation (2.2) for PyPI
+- Rock-solid multi-context import system
+
+**Documentation Created:**
+- Comprehensive contributor workflow (CONTRIBUTING.md)
+- Maintainer release process (RELEASING.md)
+- AI assistant directives for future continuity
+
+**Impact:**
+- Package successfully deployed to PyPI
+- All execution contexts now work correctly
+- Clear documentation for contributors vs maintainers
+- Foundation for rock-solid deployment pipeline
 
 **Next Steps:**
-- Implement conditional imports in `menu.py`
-- Fix deprecated `pandac.PandaModules` imports
-- Create asset manifest system for future remote assets
+- Release 0.1.87 with documentation updates
+- Consider adding CI/CD automation
+- Implement comprehensive test suite
 
 ### Previous Improvements (from IMPROVEMENTS.md)
 1. Created single source version management (`_version.py`)
