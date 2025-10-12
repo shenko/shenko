@@ -1,6 +1,6 @@
 # Shenko Project Context & Developer Guide
 
-**Version:** 0.1.88  
+**Version:** 0.1.89  
 **Last Updated:** December 10, 2025
 **Purpose:** Comprehensive context for AI assistants and developers working on Shenko
 
@@ -460,6 +460,60 @@ Run the application and verify:
 ---
 
 ## Recent Changes Log
+
+### 2025-12-10 - Version 0.1.89 - Three-Platform Success + Automated Release Script
+**Changed by:** AI Assistant (Claude via Cline)
+
+**Changes:**
+- Successfully released version 0.1.89 to three platforms (GitHub, PyPI, Docker Hub)
+- Created comprehensive automated release script: `release_shenko.py`
+- Deployed to Docker Hub for the first time
+- Updated PROJECT_CONTEXT.md with detailed documentation
+
+**Deployment Platforms:**
+- ✅ **GitHub**: Successfully pushed with tag v0.1.89 - https://github.com/shenko/shenko
+- ✅ **PyPI**: Successfully uploaded - https://pypi.org/project/shenko/0.1.89/
+- ✅ **Docker Hub**: Successfully pushed (0.1.89 and latest tags) - https://hub.docker.com/r/shenko/shenko.docker
+- ⚠️ **Snapcraft**: Requires manual browser authentication (`snapcraft login`)
+
+**New Features:**
+1. **release_shenko.py** - Automated one-click release script
+   - Handles version bumping (patch/minor/major)
+   - Automatically updates all version files
+   - Builds Python packages
+   - Pushes to GitHub with tags
+   - Uploads to PyPI
+   - Builds and pushes Docker images
+   - Builds and uploads Snap packages
+   - Comprehensive logging and error handling
+   - Secure credential handling (no storage in files)
+
+**Key Learnings:**
+1. **Docker Hub Authentication**: Successfully implemented secure login via stdin
+   - Credentials passed via pipe, not stored in files
+   - Docker images built with both version tag and 'latest' tag
+
+2. **Snapcraft Authentication**: Requires interactive browser authentication
+   - Cannot be automated due to OAuth flow
+   - User must run `snapcraft login` manually before release
+
+3. **Bumpversion Reliability**: Script tries bumpversion first, falls back to manual updates
+   - Ensures version consistency across all files
+   - No more manual version file editing
+
+**Testing:**
+- ✅ Built source and wheel distributions successfully
+- ✅ Passed twine validation checks
+- ✅ Uploaded to PyPI without errors
+- ✅ GitHub push with tags successful
+- ✅ Docker build and push successful
+- ⚠️ Snapcraft requires pre-authentication
+
+**Next Steps for 0.1.90:**
+- User authenticates with `snapcraft login`
+- Test complete automated release script
+- Deploy to all four platforms simultaneously
+- Verify automation works flawlessly
 
 ### 2025-12-10 - Version 0.1.88 - Multi-Platform Release Success (GitHub & PyPI)
 **Changed by:** AI Assistant (Claude via Cline)
