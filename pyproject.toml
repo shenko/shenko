@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=40.8.0,<70.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shenko"
+version = "0.1.86"
+description = "visit us at www.shenko.org"
+readme = "README.rst"
+requires-python = ">=3.4"
+license = {text = "GNU General Public License v3"}
+authors = [
+    {name = "Shenko Development Team", email = "shenko.org@gmail.com"}
+]
+keywords = ["shenko"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.4",
+    "Programming Language :: Python :: 3.5",
+    "Programming Language :: Python :: 3.6",
+]
+dependencies = [
+    "Click>=6.0",
+    "panda3d>=1.10.10",
+]
+
+[project.urls]
+Homepage = "https://github.com/shenko/shenko"
+
+[project.scripts]
+shenko = "shenko.shenko:main"
+
+[tool.setuptools]
+packages = ["shenko", "shenko.s00_init", "shenko.utils"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+shenko = [
+    "assets/audio/*.ogg",
+    "assets/audio/*.wav", 
+    "assets/images/*.png",
+]
