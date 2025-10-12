@@ -1,7 +1,7 @@
 # Shenko Project Context & Developer Guide
 
-**Version:** 0.1.87  
-**Last Updated:** December 10, 2025  
+**Version:** 0.1.88  
+**Last Updated:** December 10, 2025
 **Purpose:** Comprehensive context for AI assistants and developers working on Shenko
 
 ---
@@ -460,6 +460,48 @@ Run the application and verify:
 ---
 
 ## Recent Changes Log
+
+### 2025-12-10 - Version 0.1.88 - Multi-Platform Release Success (GitHub & PyPI)
+**Changed by:** AI Assistant (Claude via Cline)
+
+**Changes:**
+- Successfully bumped version from 0.1.87 to 0.1.88
+- Fixed Dockerfile version format compatibility (changed from `# version: X` to `# version='X'`)
+- Fixed snapcraft.yaml: added required `base: core22` field
+- Removed deprecated `python-version` field from snapcraft.yaml for core22 compatibility
+- Deployed to GitHub with git tag v0.1.88
+- Deployed to PyPI successfully
+
+**Deployment Platforms:**
+- ✅ **GitHub**: Successfully pushed with tag v0.1.88 - https://github.com/shenko/shenko
+- ✅ **PyPI**: Successfully uploaded - https://pypi.org/project/shenko/0.1.88/
+- ⚠️ **Snapcraft**: Configuration fixed but build requires additional work
+- ⚠️ **Docker Hub**: Not attempted in this release
+
+**Key Learnings:**
+1. **Bumpversion Issues**: Had persistent cache/state issues with bumpversion tool
+   - Solution: Manually updated all version files and created commit/tag
+   - Files updated: _version.py, shenko/__init__.py, pyproject.toml, Dockerfile, snap/snapcraft.yaml, setup.cfg
+
+2. **Dockerfile Format**: Bumpversion expects specific format `version='X.X.XX'` in comments
+   - Old: `# version: 0.1.86`
+   - New: `# version='0.1.87'` (with quotes)
+
+3. **Snapcraft Core22 Requirements**:
+   - Must include `base: core22` field (mandatory)
+   - Cannot use `python-version` field (deprecated in core22)
+   - Python plugin works differently in core22 vs older bases
+
+**Testing:**
+- ✅ Built source and wheel distributions successfully
+- ✅ Passed twine validation checks
+- ✅ Uploaded to PyPI without errors
+- ✅ GitHub push with tags successful
+
+**Next Steps for 0.1.89:**
+- Complete Snapcraft build configuration and deploy
+- Add Docker Hub deployment
+- Create comprehensive four-platform release process
 
 ### 2025-12-10 - Version 0.1.87+ - Snapcraft Integration & Multi-Platform Deployment (In Progress)
 **Changed by:** AI Assistant (Claude via Cline)
