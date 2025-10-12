@@ -73,13 +73,29 @@ twine upload --repository testpypi dist/*
 twine upload dist/*
 ```
 
-### 5. Build Other Formats (Optional)
+### 5. Build and Upload Snap Package
 
-**Snap Package:**
+**Important:** Snap deployment is now part of standard release process.
+
 ```bash
+# Build snap package
+cd /path/to/shenko
+snapcraft clean  # Clean previous builds
 snapcraft
-snapcraft upload shenko_X.X.XX_amd64.snap --release=stable
+
+# Login to Snap Store (if not already logged in)
+snapcraft login
+
+# Upload and release to stable channel
+snapcraft upload shenko_*.snap --release=stable
+
+# Verify upload
+snapcraft status shenko
 ```
+
+**Note:** The snap will be built for your current architecture. For multi-arch support, use build farms or Launchpad.
+
+### 6. Build Other Formats (Optional)
 
 **Panda3D Standalone Executables:**
 ```bash
@@ -94,7 +110,7 @@ docker push your-registry/shenko:X.X.XX
 docker push your-registry/shenko:latest
 ```
 
-### 6. Create GitHub Release
+### 7. Create GitHub Release
 
 1. Go to https://github.com/shenko/shenko/releases
 2. Click "Create a new release"
@@ -105,10 +121,13 @@ docker push your-registry/shenko:latest
 
 ---
 
-## Post-Release
+## Post-Release Verification
 
-- [ ] Verify package on PyPI: https://pypi.org/project/shenko/
-- [ ] Test installation: `pip install shenko`
+- [ ] Verify PyPI: https://pypi.org/project/shenko/
+- [ ] Verify Snap Store: https://snapcraft.io/shenko
+- [ ] Verify GitHub: https://github.com/shenko/shenko/releases
+- [ ] Test pip install: `pip install shenko`
+- [ ] Test snap install: `snap install shenko`
 - [ ] Announce release (if desired)
 
 ---
@@ -116,12 +135,16 @@ docker push your-registry/shenko:latest
 ## Quick Reference Commands
 
 ```bash
-# Complete release in one go:
+# Complete release (GitHub + PyPI + Snapcraft):
 bumpversion patch
 git push && git push --tags
 rm -rf dist/ && python3 -m build
 twine check dist/* && twine upload dist/*
+snapcraft clean && snapcraft
+snapcraft upload shenko_*.snap --release=stable
 ```
+
+**Note:** Make sure you're logged into both PyPI and Snap Store before running these commands.
 
 ---
 

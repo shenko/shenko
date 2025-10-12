@@ -4,6 +4,113 @@ This document outlines the improvements made to the Shenko codebase to make it m
 
 ---
 
+## 2025-12-10 - Version 0.1.88 - Snapcraft Integration & Multi-Platform Release
+
+### Summary
+Major milestone: Added Snapcraft (Snap Store) deployment to the release process, enabling distribution across three platforms: GitHub, PyPI, and Snap Store. Fixed critical issues in snap configuration and fully automated the multi-platform release workflow.
+
+### Critical Issues Fixed
+
+**1. Snapcraft Configuration Outdated**
+- **Problem:** snapcraft.yaml was using deprecated `python-version: python2`
+- **Impact:** Snap builds would fail on modern systems
+- **Solution:** Updated to `python-version: python3`
+- **Additional Fix:** Version was stuck at 0.1.85, now synchronized
+
+**2. Snapcraft Not in Version Management**
+- **Problem:** snap/snapcraft.yaml was not included in bumpversion configuration
+- **Impact:** Manual version updates required for every release
+- **Solution:** Added snapcraft.yaml to setup.cfg bumpversion configuration
+
+### Changes Made
+
+**Configuration Files:**
+- `snap/snapcraft.yaml`:
+  - Changed `python-version: python2` → `python3` (CRITICAL)
+  - Updated version: `0.1.85` → `0.1.88`
+  - Verified plugin configuration (python, strict confinement)
+
+- `setup.cfg`:
+  - Added `[bumpversion:file:snap/snapcraft.yaml]` section
+  - Ensures version auto-updates with `bumpversion` command
+
+**Documentation Updates:**
+- `RELEASING.md`:
+  - Added complete Snapcraft section (Step 5)
+  - Included snap build, login, upload, and verification commands
+  - Updated quick reference with snap deployment
+  - Added snap verification to post-release checklist
+
+- `PROJECT_CONTEXT.md`:
+  - Added Snapcraft Upload section to Build & Deployment
+  - Updated version to 0.1.88
+  - Added Snapcraft deployment information
+  - Documented snap configuration details
+
+- `IMPROVEMENTS.md`:
+  - This entry documenting version 0.1.88 changes
+
+### System Setup
+
+**Snapcraft Installation:**
+```bash
+sudo snap install snapcraft --classic
+snapcraft --version  # 8.12.0 installed
+```
+
+### Deployment Workflow
+
+**New Three-Platform Release Process:**
+1. **GitHub**: git push with tags
+2. **PyPI**: python build + twine upload
+3. **Snapcraft**: snapcraft build + upload --release=stable
+
+**Automation:**
+- All three platforms now use `bumpversion` for version management
+- Single command updates all version files
+- Comprehensive documentation for each platform
+
+### Files Modified
+- `snap/snapcraft.yaml` - Fixed python version, updated version number
+- `setup.cfg` - Added snapcraft.yaml to bumpversion
+- `RELEASING.md` - Added Snapcraft deployment steps
+- `PROJECT_CONTEXT.md` - Added Snapcraft information and version update
+- `IMPROVEMENTS.md` - This entry
+
+### Testing Plan
+- [x] Snapcraft tool installed
+- [x] Configuration files updated
+- [x] Documentation complete
+- [ ] Build snap package
+- [ ] Login to Snap Store
+- [ ] Upload to Snap Store
+- [ ] Verify on all three platforms
+
+### Success Criteria
+- Version 0.1.88 visible on GitHub (with v0.1.88 tag)
+- Version 0.1.88 available on PyPI
+- Version 0.1.88 available on Snap Store (https://snapcraft.io/shenko)
+- All platforms install and run correctly
+
+### Benefits
+1. **Multi-Platform Distribution** - Users can now install via:
+   - `pip install shenko` (PyPI)
+   - `snap install shenko` (Snap Store)
+   - Direct download from GitHub releases
+   
+2. **Automated Version Management** - bumpversion handles all platforms
+
+3. **Linux App Store Presence** - Snap Store provides discoverability
+
+4. **Simplified Maintenance** - One workflow for all platforms
+
+### Future Enhancements
+- Consider adding Flatpak support
+- Automate snap builds with GitHub Actions
+- Add automated testing before each platform deployment
+
+---
+
 ## 2025-12-10 - Version 0.1.87 - Documentation Update & Routine Maintenance
 
 ### Summary

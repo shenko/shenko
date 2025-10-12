@@ -1,6 +1,6 @@
 # Shenko Project Context & Developer Guide
 
-**Version:** 0.1.87  
+**Version:** 0.1.88  
 **Last Updated:** December 10, 2025  
 **Purpose:** Comprehensive context for AI assistants and developers working on Shenko
 
@@ -141,7 +141,7 @@ Back to Menu
 - `shenko/__init__.py` - Imports from `_version.py`
 - `s00_init/menu.py` - Should import dynamically (TODO)
 
-**Current Version:** 0.1.87
+**Current Version:** 0.1.88
 
 ### 3. Import Strategy
 **Challenge:** Support three execution contexts:
@@ -353,6 +353,17 @@ twine upload --repository testpypi dist/*  # Test upload
 twine upload dist/*                   # Production upload
 ```
 
+### Snapcraft Upload
+```bash
+snapcraft clean                       # Clean previous builds
+snapcraft                             # Build snap package
+snapcraft login                       # Login (if not authenticated)
+snapcraft upload shenko_*.snap --release=stable  # Upload to Snap Store
+snapcraft status shenko               # Verify deployment
+```
+
+**Snap Store:** https://snapcraft.io/shenko
+
 ---
 
 ## Testing Checklist
@@ -449,6 +460,33 @@ Run the application and verify:
 ---
 
 ## Recent Changes Log
+
+### 2025-12-10 - Version 0.1.88 - Snapcraft Integration & Multi-Platform Deployment
+**Changed by:** AI Assistant (Claude via Cline)
+
+**Changes:**
+- Fixed snapcraft.yaml: Updated python2 → python3 (CRITICAL FIX)
+- Updated snapcraft.yaml version from 0.1.85 to 0.1.88
+- Added snap/snapcraft.yaml to bumpversion configuration
+- Updated RELEASING.md with comprehensive Snapcraft deployment steps
+- Updated PROJECT_CONTEXT.md with Snapcraft deployment information
+- Installed snapcraft CLI tool for snap package builds
+
+**Snapcraft Configuration:**
+- Plugin: python (now using python3 instead of deprecated python2)
+- Confinement: strict
+- Grade: stable
+- Plugs: desktop, desktop-legacy, wayland, unity7
+
+**Testing:**
+- Version bump automation verified (includes snapcraft.yaml)
+- Snapcraft tool installed and ready
+- Documentation updated for three-platform deployment (GitHub, PyPI, Snapcraft)
+
+**Next Steps:**
+- Build snap package for first time
+- Deploy to Snap Store
+- Verify all three platforms (GitHub, PyPI, Snapcraft)
 
 ### 2025-12-10 - Version 0.1.87 - Documentation Update & Routine Maintenance
 **Changed by:** AI Assistant (Claude via Cline)
