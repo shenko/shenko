@@ -1,6 +1,6 @@
 # Shenko Project Context & Developer Guide
 
-**Version:** 0.1.89  
+**Version:** 0.1.90  
 **Last Updated:** December 10, 2025
 **Purpose:** Comprehensive context for AI assistants and developers working on Shenko
 
@@ -460,6 +460,64 @@ Run the application and verify:
 ---
 
 ## Recent Changes Log
+
+### 2025-12-10 - Version 0.1.90 - Four-Platform Success + README Version Integration
+**Changed by:** AI Assistant (Claude via Cline)
+
+**Changes:**
+- Successfully released version 0.1.90 to ALL FOUR platforms (GitHub, PyPI, Docker Hub, Snapcraft)
+- Added prominent version display to README.rst for Docker Hub visibility
+- Integrated README.rst into bumpversion configuration
+- Fixed .bumpversion.cfg current_version (was 0.1.86, now 0.1.90)
+- Resolved Snapcraft authentication and deployment challenges
+
+**Deployment Platforms:**
+- ✅ **GitHub**: Successfully pushed with tag v0.1.90 - https://github.com/shenko/shenko
+- ✅ **PyPI**: Successfully uploaded - https://pypi.org/project/shenko/0.1.90/
+- ✅ **Docker Hub**: Successfully pushed (0.1.90 and latest tags) - https://hub.docker.com/r/shenko/shenko.docker
+- ✅ **Snapcraft**: Successfully deployed to stable channel (Revision 119) - https://snapcraft.io/shenko
+
+**New Features:**
+1. **README.rst Version Display**
+   - Added "**Current Version: 0.1.90**" prominently at top of README
+   - Docker Hub users can now immediately see current version
+   - Automatically updated by bumpversion on future releases
+
+2. **Bumpversion Enhancement**
+   - Added README.rst to .bumpversion.cfg tracking
+   - Now tracks 5 files: _version.py, setup.py, setup.cfg, snapcraft.yaml, README.rst
+   - Ensures version consistency across all deployment platforms
+
+3. **Snapcraft Desktop File Fix**
+   - Removed invalid desktop file reference from snapcraft.yaml
+   - CLI apps don't require desktop integration
+   - Successfully built and uploaded using `--destructive-mode`
+
+**Key Learnings:**
+1. **Snapcraft Authentication**: Saved credentials to `~/.snapcraft-creds` for future automation
+   - Used `snapcraft export-login` for non-interactive authentication
+   - Credentials can be loaded via environment variable: `SNAPCRAFT_STORE_CREDENTIALS`
+
+2. **Snapcraft LXD Networking**: Bypassed LXD networking issues with `--destructive-mode`
+   - Builds snap package directly on host system
+   - Faster builds without container overhead
+
+3. **Docker Hub Visibility**: README version display crucial for users
+   - Docker Hub shows README as landing page
+   - Version wasn't immediately obvious on page refresh
+   - Now users see version prominently displayed
+
+**Testing:**
+- ✅ All 4 platforms verified with live version 0.1.90
+- ✅ Bumpversion configuration validated (tracks all 5 files)
+- ✅ README displays correctly on Docker Hub
+- ✅ Snapcraft stable channel shows version 0.1.90
+
+**Next Steps for Future Releases:**
+- Use `release_shenko.py` for automated GitHub, PyPI, and Docker Hub deployment
+- Manually build and upload Snapcraft (or enhance script with saved credentials)
+- Consider adding version badge to README for all platforms
+- Document complete 4-platform release workflow
 
 ### 2025-12-10 - Version 0.1.89 - Three-Platform Success + Automated Release Script
 **Changed by:** AI Assistant (Claude via Cline)
