@@ -4,7 +4,7 @@ FROM        ubuntu:24.04
 MAINTAINER  shenko.org <shenko.org@gmail.com>
 
 # Updated: October 2025
-# version='0.1.89'
+# version='0.1.90'
 # Python: 3.12
 
 ENV         DEBIAN_FRONTEND=noninteractive
