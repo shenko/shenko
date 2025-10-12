@@ -10,7 +10,6 @@
   parts:
    shenko:
      plugin: python
-     python-version: python3
      source: .
 
   apps:
