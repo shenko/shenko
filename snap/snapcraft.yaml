@@ -15,7 +15,6 @@
   apps:
     shenko:
       command: bin/shenko
-      desktop: usr/share/applications/shenko.desktop
       plugs:
         - desktop
         - desktop-legacy
