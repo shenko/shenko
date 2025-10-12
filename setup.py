@@ -1,6 +1,47 @@
 # -*- coding: utf-8 -*-
 # version="0.1.86"
-"""The setup script."""
+"""
+The setup script.
+
+Build commands:
+    python3 -m build              # Build both source and wheel distributions
+    python3 -m build --sdist      # Build only source distribution
+    python3 -m build --wheel      # Build only wheel distribution
+
+Upload workflow:
+    # 1. Check distributions are valid
+    twine check dist/*
+    
+    # 2. Test upload to TestPyPI (optional but recommended)
+    twine upload --repository testpypi dist/*
+    
+    # 3. Upload to PyPI
+    twine upload dist/*
+    
+    # Or upload specific version
+    twine upload dist/shenko-0.1.86*
+
+Panda3D standalone builds:
+    python setup.py build_apps    # Build standalone executables for all platforms
+    
+    Outputs to build/ directory:
+    - Linux: manylinux2014_x86_64/
+    - macOS: macosx_10_9_x86_64/
+    - Windows: win_amd64/
+
+Docker builds:
+    docker build -t shenko:latest .           # Build Docker image
+    docker run -it shenko:latest              # Run container
+    docker run -it shenko:latest /bin/bash    # Interactive shell
+    
+    # For local development (mount source code)
+    docker build -t shenko:dev -f Dockerfile.dev .
+    docker run -it -v $(pwd):/app shenko:dev
+
+Prerequisites:
+    pip install build twine       # Install build and upload tools
+    docker                        # For Docker builds
+"""
 
 # don't need find_packages for panda3d I'm pretty sure I read that
 from setuptools import setup, find_packages
@@ -42,11 +83,7 @@ test_requirements = [
     # 		do we need to add 'unitest'???
 ]
 
-audio_files = glob.glob('assets/audio/*.ogg') + glob.glob('assets/audio/*.wav')
-image_files = glob.glob('assets/images/*.png')
 
-# Combine all files into one list
-all_files = audio_files + image_files
 
 setup(
     name='shenko',
@@ -93,13 +130,17 @@ setup(
             'log_filename': '$USER_APPDATA/shenko/output.log',
             'log_append': False,
             # Specify which files are included with the distribution
-            'include_patterns': [
-                '**/*.png',
-                '**/*.jpg',
-                '**/*.gltf',
-                '**/*.ogg',
-                '**/*.wav'
-            ],
+            # TODO: Re-enable asset patterns once asset directory structure is resolved
+            # 'include_patterns': [
+            #     '**/*.png',
+            #     '**/*.jpg',
+            #     '**/*.gltf',
+            #     '**/*.glb',
+            #     '**/*.egg.pz',
+            #     '**/*.blend',
+            #     '**/*.ogg',
+            #     '**/*.wav'
+            # ],
             # Include the OpenGL renderer and OpenAL audio plug-in
             'plugins': [
                 'pandagl',

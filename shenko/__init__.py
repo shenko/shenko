@@ -4,7 +4,7 @@
 
 __author__ = """Danny Dowshenko"""
 __email__ = 'dowshenko225@gmail.com'
-__version__ = '0.1.83'
-from menu import AppState
-from menu import quit
-from menu import toggle_fullscreen
+__version__ = '0.1.86'
+from .s00_init.menu import AppState
+from .s00_init.menu import quit
+from .s00_init.menu import toggle_fullscreen

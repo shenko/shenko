@@ -40,11 +40,21 @@ import os
 import sys
 
 # Panda imports
-from pandac.PandaModules import WindowProperties
+from panda3d.core import WindowProperties
 from direct.showbase.ShowBase import ShowBase
 
-# Local imports
-import s00_init
+# Local imports - conditional to support both script and module execution
+try:
+    # Try relative import (package/module context)
+    from . import s00_init
+    from .utils.assets import get_audio_path
+except ImportError:
+    # Fall back to absolute import (direct script execution)
+    import sys
+    import os
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import s00_init
+    from utils.assets import get_audio_path
 
 class shenkoApp(ShowBase):
     def __init__(self):
@@ -57,7 +67,7 @@ class shenkoApp(ShowBase):
         win_props.setTitle('Shenko.org')
         self.win.requestProperties(win_props)
 
-        self.rollSound = base.loader.loadSfx("assets/audio/click.ogg")
+        self.rollSound = base.loader.loadSfx(get_audio_path("click.ogg"))
 
 
         state = s00_init.AppState("Application")
@@ -78,4 +88,3 @@ else:
     print("Shenko main is being imported, with no setup")
     app = shenkoApp()
     app.run()
-

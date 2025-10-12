@@ -3,6 +3,7 @@ include CONTRIBUTING.rst
 include HISTORY.rst
 include LICENSE
 include README.rst
+include _version.py
 
 recursive-include assets *
 recursive-include shenko/assets *
