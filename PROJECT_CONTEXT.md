@@ -1,6 +1,6 @@
 # Shenko Project Context & Developer Guide
 
-**Version:** 0.1.90  
+**Version:** 0.1.90 (preparing for 0.1.91 with Flathub)  
 **Last Updated:** December 10, 2025
 **Purpose:** Comprehensive context for AI assistants and developers working on Shenko
 
@@ -460,6 +460,58 @@ Run the application and verify:
 ---
 
 ## Recent Changes Log
+
+### 2025-12-10 - Version 0.1.90+ - Flathub Configuration Added (Platform #5 In Progress)
+**Changed by:** AI Assistant (Claude via Cline)
+
+**Changes:**
+- Created complete Flathub/Flatpak configuration for 5th platform deployment
+- Added org.shenko.shenko.json (Flatpak manifest)
+- Added org.shenko.shenko.desktop (desktop entry file)
+- Added org.shenko.shenko.appdata.xml (app metadata)
+- Updated .bumpversion.cfg to track 7 files (added Flatpak manifest and appdata)
+- Configured to use existing logo.png as app icon
+- Committed and pushed to GitHub (commit 3c02a49)
+
+**Flathub Configuration:**
+- **Manifest**: org.shenko.shenko.json
+- **Desktop File**: org.shenko.shenko.desktop
+- **AppData**: org.shenko.shenko.appdata.xml
+- **Icon**: shenko/assets/images/logo.png (256x256)
+- **Runtime**: org.freedesktop.Platform 23.08
+- **Dependencies**: Python 3, pip, Panda3D 1.10.10+
+
+**Next Steps for Flathub Deployment:**
+1. Create a separate GitHub repository: `flathub/org.shenko.shenko`
+2. Copy the Flatpak files to that repository
+3. Submit a pull request to `flathub/flathub` repository
+4. Wait for Flathub review/approval (typically 1-3 days)
+5. Once approved, bump to version 0.1.91 for 5-platform release
+
+**Flathub Submission Process:**
+The Flathub submission requires:
+- Forking the flathub/flathub repository
+- Creating org.shenko.shenko repository under flathub organization
+- Submitting PR with manifest, desktop, and appdata files
+- Addressing any reviewer feedback
+- Official listing at: https://flathub.org/apps/org.shenko.shenko (after approval)
+
+**Current Deployment Status:**
+- ✅ **GitHub**: https://github.com/shenko/shenko (version 0.1.90)
+- ✅ **PyPI**: https://pypi.org/project/shenko/0.1.90/
+- ✅ **Docker Hub**: https://hub.docker.com/r/shenko/shenko.docker
+- ✅ **Snapcraft**: https://snapcraft.io/shenko (Revision 119)
+- 🔄 **Flathub**: Configuration ready, awaiting submission
+
+**Testing:**
+- ✅ Flatpak manifest created with proper build commands
+- ✅ Desktop and appdata files validated
+- ✅ Bumpversion configuration updated
+- ✅ Committed and pushed to GitHub
+
+**Next Release (0.1.91):**
+Will be deployed after Flathub approval to celebrate 5-platform availability:
+- GitHub, PyPI, Docker Hub, Snapcraft, Flathub
 
 ### 2025-12-10 - Version 0.1.90 - Four-Platform Success + README Version Integration
 **Changed by:** AI Assistant (Claude via Cline)
