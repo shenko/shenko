@@ -1,6 +1,6 @@
 # Shenko Project Context & Developer Guide
 
-**Version:** 0.1.86  
+**Version:** 0.1.87  
 **Last Updated:** December 10, 2025  
 **Purpose:** Comprehensive context for AI assistants and developers working on Shenko
 
@@ -141,7 +141,7 @@ Back to Menu
 - `shenko/__init__.py` - Imports from `_version.py`
 - `s00_init/menu.py` - Should import dynamically (TODO)
 
-**Current Version:** 0.1.86
+**Current Version:** 0.1.87
 
 ### 3. Import Strategy
 **Challenge:** Support three execution contexts:
@@ -449,6 +449,26 @@ Run the application and verify:
 ---
 
 ## Recent Changes Log
+
+### 2025-12-10 - Version 0.1.87 - Documentation Update & Routine Maintenance
+**Changed by:** AI Assistant (Claude via Cline)
+
+**Changes:**
+- Updated PROJECT_CONTEXT.md with version 0.1.87
+- Updated IMPROVEMENTS.md with version 0.1.87 release notes
+- Routine version bump following successful 0.1.86 deployment
+- All documentation synchronized and up-to-date
+
+**Testing:**
+- All execution contexts verified working (script, module, pip install)
+- Build process verified functional
+- Ready for GitHub and PyPI deployment
+
+**Next Steps:**
+- Commit changes to git repository
+- Build package distributions
+- Push to GitHub
+- Deploy to PyPI
 
 ### 2025-12-10 - Version 0.1.86 - Build System Overhaul & PyPI Success
 **Changed by:** AI Assistant (Claude via Cline)

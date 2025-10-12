@@ -4,6 +4,67 @@ This document outlines the improvements made to the Shenko codebase to make it m
 
 ---
 
+## 2025-12-10 - Version 0.1.87 - Documentation Update & Routine Maintenance
+
+### Summary
+Routine version bump to 0.1.87 following successful 0.1.86 deployment. Updated all documentation to reflect new version and prepared for deployment to GitHub and PyPI.
+
+### Changes Made
+
+**Documentation Updates:**
+- Updated PROJECT_CONTEXT.md version header from 0.1.86 to 0.1.87
+- Updated IMPROVEMENTS.md with version 0.1.87 release notes
+- Added entry to Recent Changes Log in PROJECT_CONTEXT.md
+- Synchronized all version references across documentation
+
+**Version Bump Process:**
+- Using bumpversion tool to update all version references
+- Maintaining consistency across _version.py, pyproject.toml, setup.cfg
+- Following established release workflow from RELEASING.md
+
+### Files Modified
+- `PROJECT_CONTEXT.md` - Version updates and new changelog entry
+- `IMPROVEMENTS.md` - This entry
+- `_version.py` - Version bump from 0.1.86 to 0.1.87
+- `pyproject.toml` - Version update via bumpversion
+- `setup.cfg` - Version update via bumpversion
+- `shenko/__init__.py` - Version update via bumpversion
+
+### Testing Plan
+- Direct script execution: `python3 shenko/shenko.py`
+- Module execution: `python3 -m shenko.shenko`
+- Package build: `python3 -m build`
+- Validation: `twine check dist/*`
+- GitHub push with tags
+- PyPI deployment
+
+### Deployment Checklist
+- [x] Update PROJECT_CONTEXT.md
+- [x] Update IMPROVEMENTS.md
+- [ ] Run bumpversion to update all version files
+- [ ] Commit changes to git
+- [ ] Build distributions (sdist + wheel)
+- [ ] Verify build with twine check
+- [ ] Push to GitHub with tags
+- [ ] Upload to PyPI with twine
+
+### Success Criteria
+- Version 0.1.87 visible on GitHub repository
+- Version 0.1.87 available on PyPI at https://pypi.org/project/shenko/
+- All documentation reflects correct version
+- Package installs correctly via `pip install shenko==0.1.87`
+
+### Notes for Future Releases
+This release demonstrates the streamlined workflow established in version 0.1.86:
+1. Update documentation files manually (PROJECT_CONTEXT.md, IMPROVEMENTS.md)
+2. Use bumpversion to automatically update all version references
+3. Build, verify, and deploy following RELEASING.md checklist
+4. Verify success on both GitHub and PyPI
+
+The build system remains stable with pyproject.toml ensuring PyPI-compatible metadata generation.
+
+---
+
 ## 2025-12-10 - Build System Overhaul & PyPI Deployment Success
 
 ### Problems Encountered
