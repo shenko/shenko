@@ -8,7 +8,6 @@ Welcome to shenko's documentation!
    readme
    installation
    usage
-   modules
    contributing
    authors
    history
