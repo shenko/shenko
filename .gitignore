@@ -18,6 +18,10 @@ eggs/
 lib/
 lib64/
 parts/
+prime/
+stage/
+overlay/
+*.snap
 sdist/
 var/
 wheels/
