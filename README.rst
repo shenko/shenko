@@ -2,7 +2,7 @@
 shenko
 ======
 
-**Current Version: 0.1.90**
+**Current Version: 0.1.91**
 
 .. image:: https://img.shields.io/pypi/v/shenko.svg
         :target: https://pypi.python.org/pypi/shenko
