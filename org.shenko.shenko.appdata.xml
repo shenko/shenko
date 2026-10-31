@@ -38,7 +38,7 @@
   </provides>
   
   <releases>
-    <release version="0.1.91" date="2025-12-10">
+    <release version="0.1.92" date="2025-12-10">
       <description>
         <p>Version 0.1.90 - Multi-platform deployment release</p>
         <ul>

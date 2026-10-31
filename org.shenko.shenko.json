@@ -47,7 +47,7 @@
         {
           "type": "git",
           "url": "https://github.com/shenko/shenko.git",
-          "tag": "v0.1.91",
+          "tag": "v0.1.92",
           "commit": "78f8618"
         }
       ]
